@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A497D092444A8B300C7EB4B /* UnitConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A497D092444A8B300C7EB4B /* UnitConverters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A497D0C2444A8B300C7EB4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A497D0E2444A8B300C7EB4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1A497D102444A8B300C7EB4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		1A497D0A2444A8B300C7EB4B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A497D092444A8B300C7EB4B /* UnitConverter.app */,
+				1A497D092444A8B300C7EB4B /* UnitConverters.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,7 +92,7 @@
 			);
 			name = UnitConverter;
 			productName = UnitConverter;
-			productReference = 1A497D092444A8B300C7EB4B /* UnitConverter.app */;
+			productReference = 1A497D092444A8B300C7EB4B /* UnitConverters.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -293,8 +293,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Freedom.UnitConverter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Freedom.UnitConverters;
+				PRODUCT_NAME = UnitConverters;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -313,8 +313,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Freedom.UnitConverter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = Freedom.UnitConverters;
+				PRODUCT_NAME = UnitConverters;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
