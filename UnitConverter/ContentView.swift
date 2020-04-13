@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var tempInput = ""
-    let tempUnits = ["Celsius", "Fahrenheit", "Kevin"]
+    let tempUnits = ["Celsius", "Fahrenheit", "Kelvin"]
     @State private var inputTempUnitIndex = 0
     @State private var outputTempUnitIndex = 0
     private var tempResult: Double {
@@ -92,9 +92,9 @@ private func fromFahrenheitTo(unitIndex: Int, value: Double) -> Double {
 private func fromKelvinTo(unitIndex: Int, value: Double) -> Double {
     switch unitIndex {
     case 0:
-        return kevin2Celsius(kValue: value)
+        return kelvin2Celsius(kValue: value)
     case 1:
-        return kevin2Fahrenheit(kValue: value)
+        return kelvin2Fahrenheit(kValue: value)
     default:
         return value
     }
@@ -117,11 +117,11 @@ private func fahrenheit2Celsius(fValue: Double) -> Double{
     return (fValue - 32) * 5 / 9
 }
 
-private func kevin2Fahrenheit(kValue: Double) -> Double{
+private func kelvin2Fahrenheit(kValue: Double) -> Double{
     return kValue * 1.8 - 459.67
 }
 
-private func kevin2Celsius(kValue: Double) -> Double{
+private func kelvin2Celsius(kValue: Double) -> Double{
     return kValue - 273.15
 }
 

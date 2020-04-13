@@ -13,6 +13,7 @@
 		1A497D132444A8B300C7EB4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A497D122444A8B300C7EB4B /* Assets.xcassets */; };
 		1A497D162444A8B300C7EB4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A497D152444A8B300C7EB4B /* Preview Assets.xcassets */; };
 		1A497D192444A8B300C7EB4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A497D172444A8B300C7EB4B /* LaunchScreen.storyboard */; };
+		1A497D222444CD7700C7EB4B /* TempConverter_noloop.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A497D212444CD7600C7EB4B /* TempConverter_noloop.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1A497D152444A8B300C7EB4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A497D182444A8B300C7EB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A497D1A2444A8B300C7EB4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A497D212444CD7600C7EB4B /* TempConverter_noloop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TempConverter_noloop.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		1A497D002444A8B300C7EB4B = {
 			isa = PBXGroup;
 			children = (
+				1A497D202444CD7600C7EB4B /* Demo */,
 				1A497D0B2444A8B300C7EB4B /* UnitConverter */,
 				1A497D0A2444A8B300C7EB4B /* Products */,
 			);
@@ -73,6 +76,14 @@
 				1A497D152444A8B300C7EB4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A497D202444CD7600C7EB4B /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				1A497D212444CD7600C7EB4B /* TempConverter_noloop.gif */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A497D222444CD7700C7EB4B /* TempConverter_noloop.gif in Resources */,
 				1A497D192444A8B300C7EB4B /* LaunchScreen.storyboard in Resources */,
 				1A497D162444A8B300C7EB4B /* Preview Assets.xcassets in Resources */,
 				1A497D132444A8B300C7EB4B /* Assets.xcassets in Resources */,
