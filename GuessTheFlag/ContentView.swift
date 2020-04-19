@@ -9,11 +9,76 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var  countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Monaco", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
+    @State private var correctAnswer = Int.random(in: 0...2)
+    @State private var showingResult = false
+    @State private var score = 0
+    @State private var result = ""
+    @State private var msg = ""
     var body: some View {
-        Text("Hello, World!")
+        ZStack{
+            //Color.blue.edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            VStack(spacing: 10){
+                VStack{
+                Text("Tap")
+                Text("\(countries[correctAnswer])")
+                    .fontWeight(.heavy)
+                    .titleStyle()
+                }
+                ForEach(0..<3) { number in
+                    Button(action:{
+                        self.checkAnswer(countryIndex: number)
+                    }){
+                        Image(self.countries[number])
+                            .renderingMode(.original)
+                            .clipShape(Capsule())
+                            .shadow(color: .black, radius: 5, x: 2, y: 2)
+                            .overlay(Capsule().stroke(Color.black, lineWidth: 2))
+                    }
+                }
+    
+                Text("Score:\(score)")
+            }
+            .alert(isPresented: $showingResult){
+                Alert(title: Text("\(self.result)"), message: Text("\(self.msg)"), dismissButton: .default(Text("Continue")){
+                    self.continueGame()
+                    })
+            }
+        }
+    }
+    func checkAnswer(countryIndex: Int) {
+        if countryIndex == correctAnswer {
+            self.result = "Correct"
+            score += 1
+            self.msg = "You got one more score"
+        } else {
+            self.result = "InCorrect"
+            self.msg = "This is flag of \(self.countries[countryIndex])"
+        }
+        showingResult = true
+    }
+    
+    func continueGame() {
+        countries = countries.shuffled()
+        correctAnswer = Int.random(in: 0...2)
     }
 }
 
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.purple)
+    }
+}
+
+extension View{
+    func titleStyle() -> some View {
+        self.modifier(Title())
+    }
+}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
