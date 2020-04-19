@@ -13,6 +13,7 @@
 		1A5BC456244C8DFB003FA821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5BC455244C8DFB003FA821 /* Assets.xcassets */; };
 		1A5BC459244C8DFB003FA821 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5BC458244C8DFB003FA821 /* Preview Assets.xcassets */; };
 		1A5BC45C244C8DFB003FA821 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A5BC45A244C8DFB003FA821 /* LaunchScreen.storyboard */; };
+		1A5BC465244CE2A3003FA821 /* PSR_demo_50.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A5BC464244CE2A3003FA821 /* PSR_demo_50.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1A5BC458244C8DFB003FA821 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A5BC45B244C8DFB003FA821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A5BC45D244C8DFB003FA821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A5BC464244CE2A3003FA821 /* PSR_demo_50.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PSR_demo_50.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		1A5BC443244C8DF9003FA821 = {
 			isa = PBXGroup;
 			children = (
+				1A5BC463244CDE13003FA821 /* Demo */,
 				1A5BC44E244C8DF9003FA821 /* PaperScissorsRock */,
 				1A5BC44D244C8DF9003FA821 /* Products */,
 			);
@@ -73,6 +76,14 @@
 				1A5BC458244C8DFB003FA821 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A5BC463244CDE13003FA821 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				1A5BC464244CE2A3003FA821 /* PSR_demo_50.gif */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5BC465244CE2A3003FA821 /* PSR_demo_50.gif in Resources */,
 				1A5BC45C244C8DFB003FA821 /* LaunchScreen.storyboard in Resources */,
 				1A5BC459244C8DFB003FA821 /* Preview Assets.xcassets in Resources */,
 				1A5BC456244C8DFB003FA821 /* Assets.xcassets in Resources */,
