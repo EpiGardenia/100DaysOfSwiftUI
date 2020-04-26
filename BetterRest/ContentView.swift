@@ -25,7 +25,7 @@ struct ContentView: View {
         return Calendar.current.date(from: component) ?? Date()
     }
     
-    func calculateBedTime() {
+    var bedTime: String {
         let wakeUpTimeComponent = Calendar.current.dateComponents([.hour, .minute], from: wakeupTime)
         let hourInSec = (wakeUpTimeComponent.hour ?? 0) * 60 * 60
         let minuteInSec = (wakeUpTimeComponent.minute ?? 0) * 60
@@ -34,15 +34,31 @@ struct ContentView: View {
             let sleepInSec =  wakeupTime - sleepOutput.actualSleep
             let format = DateFormatter()
             format.timeStyle = .short
-            alertTitle = "You could sleep at"
-            alertMsg = format.string(from: sleepInSec)
+            return format.string(from: sleepInSec)
         }
         catch {
-            alertTitle = "Error"
-            alertMsg = "We can't get result"
+            return "Error!"
         }
-        showAlert = true
     }
+    
+//    func calculateBedTime() {
+//        let wakeUpTimeComponent = Calendar.current.dateComponents([.hour, .minute], from: wakeupTime)
+//        let hourInSec = (wakeUpTimeComponent.hour ?? 0) * 60 * 60
+//        let minuteInSec = (wakeUpTimeComponent.minute ?? 0) * 60
+//        do{
+//            let sleepOutput = try SleepCalculator().prediction(wake: Double(hourInSec + minuteInSec), estimatedSleep: sleepHours, coffee: Double(cups))
+//            let sleepInSec =  wakeupTime - sleepOutput.actualSleep
+//            let format = DateFormatter()
+//            format.timeStyle = .short
+//            alertTitle = "You could sleep at"
+//            alertMsg = format.string(from: sleepInSec)
+//        }
+//        catch {
+//            alertTitle = "Error"
+//            alertMsg = "We can't get result"
+//        }
+//        showAlert = true
+//    }
     
     var body: some View {
         NavigationView{
@@ -56,15 +72,14 @@ struct ContentView: View {
                                displayedComponents: .hourAndMinute)
                         .labelsHidden()
                         .datePickerStyle(WheelDatePickerStyle())
-                }
-                Section{
+                    
+                    
                     VStack(alignment: .leading, spacing:0){
                         // Wanted length of sleep
                         Text("Amount of desired sleep").font(.headline)
                         Stepper("\(sleepHours, specifier: "%g") hours", value: $sleepHours, in:0...24, step: 1)
                     }
-                }
-                Section{
+                    
                     // Nr. Coffee drink per day
                     VStack(alignment: .leading, spacing:0){
                         Text("Amount of coffee intake").font(.headline)
@@ -75,16 +90,14 @@ struct ContentView: View {
                         }.pickerStyle(SegmentedPickerStyle())
                     }
                 }
-//                Section{
-//                    Text("Recommend BedTime = \(alertMsg)").font(.largeTitle)
-//                }
-                
-                                .navigationBarItems(trailing:   Button(action: calculateBedTime) {
-                                    Text("Calculate").foregroundColor(.purple).font(.headline)
-                                })
-                                    .alert(isPresented: $showAlert, content: {
-                                        Alert(title: Text(alertTitle), message: Text(alertMsg), dismissButton: .default(Text("OK")))
-                                    })
+                Section{
+                    HStack(alignment: .center, spacing: 0){
+                        Text("Recommend BedTime: ")
+                        VStack(alignment: .trailing){
+                            Text("  \(bedTime)").font(.largeTitle)
+                        }
+                    }
+                }
             }
             .navigationBarTitle("Better Rest").preferredColorScheme(.some(.light)).foregroundColor(.blue)
             
