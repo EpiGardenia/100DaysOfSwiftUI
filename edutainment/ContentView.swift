@@ -10,17 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     private let options = ["5", "10", "20", "All"]
-    @State private var questionLeft = 0
+    @State private var history: [String] = []
+    @State private var stringTohistory = ""
+    @State private var nrQuestion = 0
     @State private var multTable = 5
     @State private var optionIndex = 0
     @State private var multiplicand = 0
     @State private var multiplier = 0
-    @State private var expectedAns = 0
     @State private var ans = ""
     @State private var question = ""
     @State private var score = 0
     @State private var showingQuestion = false
-    @State private var nrQuestions = 5
     @State private var showingAlert = false
     @State private var questionSet : [(Int, Int, Int)] = []
     @State private var oneSet: (Int, Int, Int) = (0, 0, 0)
@@ -28,65 +28,83 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             Form {
-                Stepper("Multiplication table up to \(self.multTable)", value: self.$multTable, in: 1...12)
-                Text("Number of questions:")
-                Picker(selection: $optionIndex, label:Text("")){
-                    ForEach(0 ..< options.count) {
-                        Text(self.options[$0])
+                Section {
+                    Stepper("Multiplication table from 1 to \(self.multTable)", value: self.$multTable, in: 1...12)
+                    HStack(){
+                        Text("Test me")
+                        Picker(selection: $optionIndex, label:Text("")){
+                            ForEach(0 ..< options.count) {
+                                Text(self.options[$0])
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        Text("questions")
                     }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                HStack(){
+                    
                     Button("Game Start", action:newGame)
-                }.foregroundColor(.green).buttonStyle(BorderlessButtonStyle())
-                
+                        .styleButton()
+                }
                 Section {
                     if showingQuestion {
                         Text(question)
                         HStack{
                             TextField("Answer:", text: $ans).keyboardType(.decimalPad)
-                            
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
                             Button("Send") {
                                 self.checkAnswer()
-                            }
+                            }.styleButton()
                         }
                     }
                 }
                 Section {
                     Text("Score: \(self.score)")
                 }
-            }.navigationBarTitle("Multiplication King")
-             .alert(isPresented: $showingAlert){
+                
+                List(history, id:\.self) {
+                    Text($0)
+                }
+                
+            }.navigationBarTitle("Multiplication Game")
+                .alert(isPresented: $showingAlert){
                     Alert(title: Text("Great Job!"), message: Text("Your score is \(score)"), primaryButton: .default(Text("Continue")){self.newGame()}, secondaryButton: .default(Text("End Game")))
             }
         }
     }
     
     func checkAnswer() {
+        self.stringTohistory.append(self.ans)
         if self.ans == String(oneSet.2) {
             score += 1
+            stringTohistory.insert(contentsOf: "✅  ", at: stringTohistory.startIndex)
+        } else {
+            stringTohistory.insert(contentsOf: "❌  ", at: stringTohistory.startIndex)
         }
+        history.append(stringTohistory)
         if questionSet.count > 0 {
             newTurn()
         } else {
             showingAlert = true
         }
+        
         UIApplication.shared.endEditing()
     }
     
     func newTurn() {
         self.oneSet = questionSet.popLast() ?? (0,0,0)
-        guard self.oneSet != (0,0,0) else { fatalError("newTurn when questionSet is empty")}
-        question = "\(self.oneSet.0) x \(self.oneSet.1) = ?"
-        ans = ""
-        
+        guard self.oneSet != (0,0,0) else {
+            fatalError("newTurn when questionSet is empty")
+        }
+        stringTohistory = "\(self.oneSet.0) x \(self.oneSet.1) = "
+        question = "Question \(nrQuestion - self.questionSet.count) of \(nrQuestion):           \(self.stringTohistory) ?"
+        self.ans = ""
     }
     
     func newGame() {
         self.score = 0
+        history.removeAll()
         showingQuestion = true
-        questionLeft = getNrQuestion()
+        showingAlert = false
+        nrQuestion = getNrQuestion()
         questionSet = getQALists()
         newTurn()
     }
@@ -116,7 +134,7 @@ struct ContentView: View {
             }
         }
         // Randomly choose unique question sets
-        return qaList.randomN(n: nrQuestions)
+        return qaList.randomN(n: nrQuestion)
     }
 }
 
@@ -148,6 +166,26 @@ extension Array {
             }
         }
         return result
+    }
+}
+
+
+
+struct ButtonStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.headline)
+            .foregroundColor(.yellow)
+            .frame(width: 120, height: 30, alignment: .center)
+            .background(Color.black)
+            .clipShape(RoundedRectangle(cornerRadius: 90, style: .circular))
+    }
+}
+
+
+extension View {
+    func styleButton() -> some View {
+        self.modifier(ButtonStyle())
     }
 }
 
