@@ -43,7 +43,8 @@ struct ContentView: View {
                     
                     Button("Game Start", action:newGame)
                         .styleButton()
-                }
+                } // end of Section
+                
                 Section {
                     if showingQuestion {
                         Text(question)
@@ -56,6 +57,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                
                 Section {
                     Text("Score: \(self.score)")
                 }
@@ -64,12 +66,13 @@ struct ContentView: View {
                     Text($0)
                 }
                 
-            }.navigationBarTitle("Multiplication Game")
+            } // end of Form
+                .navigationBarTitle("Multiplication Game")
                 .alert(isPresented: $showingAlert){
                     Alert(title: Text("Great Job!"), message: Text("Your score is \(score)"), primaryButton: .default(Text("Continue")){self.newGame()}, secondaryButton: .default(Text("End Game")))
-            }
-        }
-    }
+            } // end of alert
+        } // end of Navigation View
+    } // end of View
     
     func checkAnswer() {
         self.stringTohistory.append(self.ans)
