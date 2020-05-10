@@ -27,9 +27,8 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            Form {
-                Section {
-                    Stepper("Multiplication table from 1 to \(self.multTable)", value: self.$multTable, in: 1...12)
+            VStack(){
+                Group {
                     HStack(){
                         Text("Test me")
                         Picker(selection: $optionIndex, label:Text("")){
@@ -39,13 +38,16 @@ struct ContentView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         Text("questions")
-                    }
-                    
+                    }.padding()
+                    Stepper("of multiplication range 1 to \(self.multTable)", value: self.$multTable, in: 1...12).padding()
                     Button("Game Start", action:newGame)
                         .styleButton()
-                } // end of Section
+                    Spacer()
+                    Spacer()
+                } // end of Group
                 
-                Section {
+                Group {
+                    Spacer()
                     if showingQuestion {
                         Text(question)
                         HStack{
@@ -54,24 +56,18 @@ struct ContentView: View {
                             Button("Send") {
                                 self.checkAnswer()
                             }.styleButton()
-                        }
+                        }.padding()
                     }
-                }
-                
-                Section {
                     Text("Score: \(self.score)")
-                }
-                
-                List(history, id:\.self) {
-                    Text($0)
-                }
-                
-            } // end of Form
-                .navigationBarTitle("Multiplication Game")
-                .alert(isPresented: $showingAlert){
+                    List(history, id:\.self) {
+                        Text($0)
+                    }
+                } // end of Group
+            } // end of VStack
+                .navigationBarTitle("Multiplication Game")            .alert(isPresented: $showingAlert){
                     Alert(title: Text("Great Job!"), message: Text("Your score is \(score)"), primaryButton: .default(Text("Continue")){self.newGame()}, secondaryButton: .default(Text("End Game")))
             } // end of alert
-        } // end of Navigation View
+        }// end of Navigation View
     } // end of View
     
     func checkAnswer() {
