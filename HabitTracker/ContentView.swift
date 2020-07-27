@@ -8,9 +8,38 @@
 
 import SwiftUI
 
+
+struct Activity: Identifiable {
+    let id = UUID()
+    let title: String
+    let description: String
+    let count: Int
+}
+
+struct AddActivityView: View {
+    var body: some View{
+    Text("Hello World")
+    }
+}
+
+
 struct ContentView: View {
+    var activities: [Activity] = []
+    @State var addingActivity: Bool = false
+    
     var body: some View {
-        Text("Hello, World!")
+        
+        NavigationView() {
+            List(activities) {activity in
+                Text("Habit \(activity.id)")
+            }.navigationBarTitle("HabitTracker")
+                .navigationBarItems(leading: EditButton(), trailing: Button("+") {  self.addingActivity = true}
+                    .sheet(isPresented: $addingActivity) {
+                        AddActivityView()
+                })
+            
+        }
+        
     }
 }
 
