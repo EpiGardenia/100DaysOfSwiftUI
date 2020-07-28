@@ -13,6 +13,7 @@
 		1A8D028724CE113D0039B1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D028624CE113D0039B1AE /* Assets.xcassets */; };
 		1A8D028A24CE113D0039B1AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D028924CE113D0039B1AE /* Preview Assets.xcassets */; };
 		1A8D028D24CE113D0039B1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D028B24CE113D0039B1AE /* LaunchScreen.storyboard */; };
+		1A8D029924D0B0E30039B1AE /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D029824D0B0E30039B1AE /* AddActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1A8D028924CE113D0039B1AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A8D028C24CE113D0039B1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A8D028E24CE113D0039B1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A8D029824D0B0E30039B1AE /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				1A8D028B24CE113D0039B1AE /* LaunchScreen.storyboard */,
 				1A8D028E24CE113D0039B1AE /* Info.plist */,
 				1A8D028824CE113D0039B1AE /* Preview Content */,
+				1A8D029824D0B0E30039B1AE /* AddActivityView.swift */,
 			);
 			path = HabitTracker;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8D028124CE113C0039B1AE /* AppDelegate.swift in Sources */,
+				1A8D029924D0B0E30039B1AE /* AddActivityView.swift in Sources */,
 				1A8D028324CE113C0039B1AE /* SceneDelegate.swift in Sources */,
 				1A8D028524CE113C0039B1AE /* ContentView.swift in Sources */,
 			);

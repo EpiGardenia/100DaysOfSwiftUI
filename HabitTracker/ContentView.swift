@@ -16,12 +16,6 @@ struct Activity: Identifiable {
     let count: Int
 }
 
-struct AddActivityView: View {
-    var body: some View{
-    Text("Hello World")
-    }
-}
-
 
 struct ContentView: View {
     var activities: [Activity] = []
