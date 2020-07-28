@@ -9,31 +9,47 @@
 import SwiftUI
 
 
-struct Activity: Identifiable {
+struct Activity: Identifiable, Codable {
     let id = UUID()
     let title: String
     let description: String
     let count: Int
 }
 
-
-struct ContentView: View {
-    var activities: [Activity] = []
-    @State var addingActivity: Bool = false
-    
-    var body: some View {
-        
-        NavigationView() {
-            List(activities) {activity in
-                Text("Habit \(activity.id)")
-            }.navigationBarTitle("HabitTracker")
-                .navigationBarItems(leading: EditButton(), trailing: Button("+") {  self.addingActivity = true}
-                    .sheet(isPresented: $addingActivity) {
-                        AddActivityView()
-                })
+class Activities: ObservableObject {
+    @Published var activities: [Activity] {
+        didSet{
             
         }
         
+    }
+    
+    init() {
+        
+        self.activities = []
+        
+    }
+    
+    
+}
+
+
+
+struct ContentView: View {
+    //    var activities: [Activity] = []
+    @State var addingActivity: Bool = false
+    @ObservedObject var habits = Activities()
+    var body: some View {
+        NavigationView() {
+            List(self.habits.activities) {activity in
+                Text("Habit \(activity.title): \(activity.description) ")
+            }.navigationBarTitle("HabitTracker")
+                .navigationBarItems(leading: EditButton(), trailing: Button("+") {  self.addingActivity = true
+                })
+                .sheet(isPresented: $addingActivity) {
+                    AddActivityView(habitList: self.habits)
+            }
+        }
     }
 }
 

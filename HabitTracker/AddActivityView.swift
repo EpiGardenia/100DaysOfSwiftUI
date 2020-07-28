@@ -10,9 +10,9 @@ import SwiftUI
 
 struct AddActivityView: View {
     @Environment(\.presentationMode) var presentationMode
-    
-    @State var title = ""
-    @State var description = ""
+    @ObservedObject var habitList: Activities
+    @State private var title = ""
+    @State private var description = ""
     var body: some View {
         NavigationView{
             VStack(spacing: 1.5){
@@ -43,8 +43,7 @@ struct AddActivityView: View {
             .navigationBarTitle("Add New Habit")
             .navigationBarItems(trailing: Button("Save") {
                 UserDefaults.standard.set(self.title, forKey: "title")
-//                UserDefaults.setValue(self.title, forKey: "title")
-//                UserDefaults.setValue(self.description, forKey: "description")
+                self.habitList.activities.append(Activity(title: self.title, description: self.description, count: 0))
                 self.presentationMode.wrappedValue.dismiss()
             })
         }
@@ -53,6 +52,6 @@ struct AddActivityView: View {
 
 struct AddActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        AddActivityView()
+        AddActivityView(habitList: Activities())
     }
 }
