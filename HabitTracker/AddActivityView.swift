@@ -16,6 +16,7 @@ struct AddActivityView: View {
     var body: some View {
         NavigationView{
             VStack(spacing: 1.5){
+                Spacer()
                 HStack{
                     Text("Title: ")
                         .font(.headline)

@@ -9,11 +9,24 @@
 import SwiftUI
 
 
-struct Activity: Identifiable, Codable {
+class Activity: Identifiable, ObservableObject {
     let id = UUID()
     let title: String
     let description: String
-    let count: Int
+    @Published var count: Int
+    
+    
+    init() {
+        title = ""
+        description = ""
+        count = 0
+    }
+    
+    init(title: String, description: String, count: Int) {
+        self.title = title
+        self.description = description
+        self.count = count
+    }
 }
 
 class Activities: ObservableObject {
@@ -36,13 +49,14 @@ class Activities: ObservableObject {
 
 
 struct ContentView: View {
-    //    var activities: [Activity] = []
     @State var addingActivity: Bool = false
     @ObservedObject var habits = Activities()
     var body: some View {
         NavigationView() {
             List(self.habits.activities) {activity in
-                Text("Habit \(activity.title): \(activity.description) ")
+                NavigationLink(destination: HabitView(habit: activity)) {
+                    Text("Habit \(activity.title): \(activity.description) ")
+                }
             }.navigationBarTitle("HabitTracker")
                 .navigationBarItems(leading: EditButton(), trailing: Button("+") {  self.addingActivity = true
                 })
