@@ -53,18 +53,32 @@ struct ContentView: View {
     @ObservedObject var habits = Activities()
     var body: some View {
         NavigationView() {
-            List(self.habits.activities) {activity in
-                NavigationLink(destination: HabitView(habit: activity)) {
-                    Text("Habit \(activity.title): \(activity.description) ")
-                }
-            }.navigationBarTitle("HabitTracker")
-                .navigationBarItems(leading: EditButton(), trailing: Button("+") {  self.addingActivity = true
-                })
+            
+            List {
+                ForEach(self.habits.activities)  {activity in
+                    NavigationLink(destination: HabitView(habit: activity)) {
+                        Text("Habit \(activity.title): \(activity.description) ")
+                    }
+                }.onDelete(perform: deleteRow)
+            }
+            .navigationBarTitle("HabitTracker")
+            .navigationBarItems(leading: EditButton(), trailing: Button("+") {  self.addingActivity = true
+            })
                 .sheet(isPresented: $addingActivity) {
                     AddActivityView(habitList: self.habits)
             }
         }
     }
+    
+    
+    
+    
+    func deleteRow(at row: IndexSet) {
+        self.habits.activities.remove(atOffsets: row)
+        
+    }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

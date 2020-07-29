@@ -64,11 +64,11 @@
 				1A8D028224CE113C0039B1AE /* SceneDelegate.swift */,
 				1A8D028424CE113C0039B1AE /* ContentView.swift */,
 				1A8D029A24D141C00039B1AE /* HabitView.swift */,
+				1A8D029824D0B0E30039B1AE /* AddActivityView.swift */,
 				1A8D028624CE113D0039B1AE /* Assets.xcassets */,
 				1A8D028B24CE113D0039B1AE /* LaunchScreen.storyboard */,
 				1A8D028E24CE113D0039B1AE /* Info.plist */,
 				1A8D028824CE113D0039B1AE /* Preview Content */,
-				1A8D029824D0B0E30039B1AE /* AddActivityView.swift */,
 			);
 			path = HabitTracker;
 			sourceTree = "<group>";
