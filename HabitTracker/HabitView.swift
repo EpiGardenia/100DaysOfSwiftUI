@@ -9,28 +9,24 @@
 import SwiftUI
 
 struct HabitView: View {
-   // var habit: Activity
+    // var habit: Activity
     @ObservedObject var habit: Activity
-    
-//    
-//    init(habit: Activity) {
-//        
-//    }
     
     var body: some View {
         VStack{
             Spacer()
-            Text(habit.title)
+            Text("I have")
             Spacer()
+            Text(habit.title)
             Text(habit.description)
             Spacer()
-            Text("For " + String(habit.count) + " Times")
+            Text("For " + String(habit.count) + " Times!")
             Spacer()
             Button("I have done today too!") {
                 self.habit.count += 1
-            }
+            }.foregroundColor(.black)
             Spacer()
-        }
+        }//.background(Color.green)
     }
 }
 
