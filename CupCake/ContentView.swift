@@ -26,7 +26,7 @@ struct ContentView: View {
         NavigationView() {
             Form {
                 Section {
-                    Picker("Select cake type", selection: $order.type) {
+                    Picker("Type of Cake", selection: $order.type) {
                         ForEach(0 ..< Order.types.count) {
                             Text(Order.types[$0])
                         }
@@ -37,7 +37,9 @@ struct ContentView: View {
                 }
                 
                 Section{
-                    Text("Any special request?")
+                    Toggle(isOn: $order.specialRequestEnabled) {
+                         Text("Any Special Request?")
+                    }
                 }
                 
                 Section{
