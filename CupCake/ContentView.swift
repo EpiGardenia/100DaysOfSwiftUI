@@ -26,19 +26,25 @@ struct ContentView: View {
         NavigationView() {
             Form {
                 Section {
-                    Picker("Cake Flavour", selection: $order.type) {
+                    Picker("Select cake type", selection: $order.type) {
                         ForEach(0 ..< Order.types.count) {
                             Text(Order.types[$0])
                         }
                     }
-                }
-                
-                Section{
                     Stepper(value: $order.quantity, in: 1...20) {
-                        Text("Cake Quantity : \(order.quantity)")
+                        Text("Number of Cakes: \(order.quantity)")
                     }
                 }
                 
+                Section{
+                    Text("Any special request?")
+                }
+                
+                Section{
+                    NavigationLink(destination: AddressView()) {
+                        Text("Delivery Details")
+                    }
+                }
                 
             }.navigationBarTitle("Cupcake")
             
