@@ -9,14 +9,6 @@
 import SwiftUI
 
 
-class Order: ObservableObject {
-    static let types = ["Vallina", "Chocklate", "Pineapple"]
-    @Published var type = 0
-    @Published var quantity = 0
-    @Published var specialRequestEnabled = false
-    @Published var extraFrosting = false
-    @Published var addSprinkles = false
-}
 
 
 struct ContentView: View {
@@ -27,11 +19,11 @@ struct ContentView: View {
             Form {
                 Section {
                     Picker("Type of Cake", selection: $order.type) {
-                        ForEach(0 ..< Order.types.count) {
+                        ForEach(0 ..< Order.types.count, id:\.self) {
                             Text(Order.types[$0])
                         }
                     }
-                    Stepper(value: $order.quantity, in: 1...20) {
+                    Stepper(value: $order.quantity, in: 2...20) {
                         Text("Number of Cakes: \(order.quantity)")
                     }
                 }
@@ -40,10 +32,19 @@ struct ContentView: View {
                     Toggle(isOn: $order.specialRequestEnabled) {
                          Text("Any Special Request?")
                     }
+                    
+                    if self.order.specialRequestEnabled {
+                        Toggle(isOn: $order.extraFrosting) {
+                            Text("Extra Frosting?")
+                        }
+                        Toggle(isOn: $order.addSprinkles) {
+                            Text("Add Sprinkles?")
+                        }
+                    }
                 }
                 
                 Section{
-                    NavigationLink(destination: AddressView()) {
+                    NavigationLink(destination: AddressView(order: order)) {
                         Text("Delivery Details")
                     }
                 }

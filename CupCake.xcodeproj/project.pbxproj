@@ -15,6 +15,7 @@
 		1A095CFB24D5FEE2006D5DB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A095CF924D5FEE2006D5DB1 /* LaunchScreen.storyboard */; };
 		1A095D0324D8B5B2006D5DB1 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A095D0224D8B5B2006D5DB1 /* AddressView.swift */; };
 		1A095D0524D8BCB6006D5DB1 /* OrderFinishedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A095D0424D8BCB6006D5DB1 /* OrderFinishedView.swift */; };
+		1A095D0724DCA71A006D5DB1 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A095D0624DCA71A006D5DB1 /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1A095CFC24D5FEE2006D5DB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A095D0224D8B5B2006D5DB1 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		1A095D0424D8BCB6006D5DB1 /* OrderFinishedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFinishedView.swift; sourceTree = "<group>"; };
+		1A095D0624DCA71A006D5DB1 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				1A095CF624D5FEE2006D5DB1 /* Preview Content */,
 				1A095D0224D8B5B2006D5DB1 /* AddressView.swift */,
 				1A095D0424D8BCB6006D5DB1 /* OrderFinishedView.swift */,
+				1A095D0624DCA71A006D5DB1 /* Order.swift */,
 			);
 			path = CupCake;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A095D0724DCA71A006D5DB1 /* Order.swift in Sources */,
 				1A095CEF24D5FEE1006D5DB1 /* AppDelegate.swift in Sources */,
 				1A095D0324D8B5B2006D5DB1 /* AddressView.swift in Sources */,
 				1A095CF124D5FEE1006D5DB1 /* SceneDelegate.swift in Sources */,

@@ -8,46 +8,35 @@
 
 import SwiftUI
 
-class Address: ObservableObject {
-    @Published var name: String = ""
-    @Published var street: String = ""
-    @Published var zipCode = ""
-    @Published var city = ""
-}
-
 
 struct AddressView: View {
-    
-    @ObservedObject var address = Address()
+    @ObservedObject var order: Order
     
     var body: some View {
         NavigationView {
             
             Form {
                 Section{
-                    TextField("Name", text: $address.name)
-                    TextField("Street", text: $address.street)
-                    TextField("Zip Code", text: $address.zipCode)
-                    TextField("City", text: $address.city)
+                    TextField("Name", text: $order.name)
+                    TextField("Street", text: $order.street)
+                    TextField("Zip Code", text: $order.zipCode)
+                    TextField("City", text: $order.city)
                 }
-
+                
                 Section{
-                    NavigationLink(destination: OrderFinishedView()) {
+                    NavigationLink(destination: OrderFinishedView(order: self.order)) {
                         Text("Checkout")
                     }
                 }
+                .disabled(order.isInfoValid() == false)
             }
+            .navigationBarTitle("Delivery Information")
         }
-    }
-    
-    
-    func checkout()  {
-        // Save values in default.
     }
 }
 
 struct AddressView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressView()
+        AddressView(order: Order())
     }
 }
