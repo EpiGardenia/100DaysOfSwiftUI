@@ -27,13 +27,13 @@ struct UserDetailView: View {
                             Text("Tags")
                                 .font(.title)
                                 .foregroundColor(.green)
-                            self.user.tags.chunked(into: 4).map{
-                                HStack{
-                                    ForEach($0, id: \.self) { k in
-                                        Text("#" + String(k))                          .modifier(TagStyle(screenWidth: geometry.size.width))
-                                    }
-                                }
-                            }
+//                            self.user.tags.chunked(into: 4).map{
+//                                HStack{
+//                                    ForEach($0, id: \.self) { k in
+//                                        Text("#" + String(k))                          .modifier(TagStyle(screenWidth: geometry.size.width))
+//                                    }
+//                                }
+//                            }
                         }
                         Spacer()
                         Section {
@@ -43,16 +43,14 @@ struct UserDetailView: View {
                             ForEach(self.user.friends, id: \.self) { friend in
                                 Text(friend.name)
                                     .font(.callout)
-                                    {
-                                }
-                                Spacer()
                             }
                         }
-                        .navigationBarTitle("   " + self.user.name)
-                        .padding(5)
+                        
                     }
                 }
             }
+            .navigationBarTitle("   " + self.user.name)
+            .padding(5)
         } //End of NavigationView
     }  // End of body View
     
