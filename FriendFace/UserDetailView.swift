@@ -24,28 +24,26 @@ struct UserDetailView: View {
                             self.rowLayout(title: "Registered", source: self.user.registered)
                         }
                         Section {
-                            Text("Tags")
-                                .font(.title)
-                                .foregroundColor(.green)
-//                            self.user.tags.chunked(into: 4).map{
-//                                HStack{
-//                                    ForEach($0, id: \.self) { k in
-//                                        Text("#" + String(k))                          .modifier(TagStyle(screenWidth: geometry.size.width))
-//                                    }
-//                                }
-//                            }
-                        }
+                            HStack{
+                                Text("Tags")
+                                Spacer()
+                                VStack(alignment: .leading){
+                                    ForEach(self.user.tags.chunked(into: 4), id:\.self) { row in
+                                        HStack{
+                                            ForEach(row, id:\.self) { k in
+                                                Text("#" + String(k))                          .modifier(TagStyle())
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } // end of Section
                         Spacer()
                         Section {
-                            Text("Friends")
-                                .font(.title)
-                                .foregroundColor(.green)
-                            ForEach(self.user.friends, id: \.self) { friend in
-                                Text(friend.name)
-                                    .font(.callout)
+                            NavigationLink(destination: FriendsView(friends: self.user.friends)) {
+                                Text("Friends")
                             }
                         }
-                        
                     }
                 }
             }
@@ -76,45 +74,42 @@ struct UserDetailView: View {
 
 /***************/
 struct TagStyle: ViewModifier{
-    let screenWidth: CGFloat
     func body(content: Content) -> some View {
         content
-            //  .font(.caption)
             .foregroundColor(.blue)
-            .background(Color.init(.sRGB, red: 0.5, green: 0.5, blue: 0.5, opacity: 0.5))
+            // .background(Color.init(.sRGB, red: 0.5, green: 0.5, blue: 0.5, opacity: 0.5))
             .clipShape(RoundedRectangle(cornerRadius: 5))
-            .frame(width: screenWidth/4)
     }
 } // end of TagStyle
-    
-    extension View {
-        func rowLayout<T:LosslessStringConvertible>(title: String, source: T) -> some View {
-            HStack{
-                Text(title)
-                Spacer()
-                Text(String(source))
-            }
-        }
-        
-        func tagView(tag: String, width: CGFloat) -> some View {
-            self.modifier(TagStyle(screenWidth: width ))
+
+extension View {
+    func rowLayout<T:LosslessStringConvertible>(title: String, source: T) -> some View {
+        HStack{
+            Text(title)
+            Spacer()
+            Text(String(source))
         }
     }
     
-    
-    
-    extension Array{
-        func chunked (into size: Int) -> [[Element]] {
-            return stride(from: 0, to: count, by: size).map {
-                Array(self[$0 ..< Swift.min($0 + size, count)])
-            }
+    func tagView(tag: String) -> some View {
+        self.modifier(TagStyle())
+    }
+}
+
+
+
+extension Array{
+    func chunked (into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
         }
     }
+}
+
+struct UserDetailView_Previews: PreviewProvider {
     
-    struct UserDetailView_Previews: PreviewProvider {
-        
-        static let users: [User] = Bundle.main.decode(from: "twoUsers.json")
-        static var previews: some View {
-            UserDetailView(user: users[0])
-        }
+    static let users: [User] = Bundle.main.decode(from: "twoUsers.json")
+    static var previews: some View {
+        UserDetailView(user: users[0])
+    }
 }
