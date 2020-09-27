@@ -13,7 +13,7 @@ struct AddressView: View {
     @ObservedObject var order: Order
     
     var body: some View {
-        NavigationView {
+       // NavigationView {   <-- This will add one more layer in going back button.
             
             Form {
                 Section{
@@ -31,7 +31,7 @@ struct AddressView: View {
                 .disabled(order.isInfoValid() == false)
             }
             .navigationBarTitle("Delivery Information")
-        }
+      //  }
     }
 }
 
