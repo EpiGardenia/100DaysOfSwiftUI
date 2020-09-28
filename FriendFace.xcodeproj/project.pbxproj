@@ -21,6 +21,7 @@
 		1A705BEA2514010600F6C17C /* twoUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A705BE92514010600F6C17C /* twoUsers.json */; };
 		1A705BEC25179D1000F6C17C /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A705BEB25179D1000F6C17C /* FriendsView.swift */; };
 		1A705BEE2522419300F6C17C /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A705BED2522419300F6C17C /* DateFormat.swift */; };
+		1A705BF0252275A200F6C17C /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A705BEF252275A200F6C17C /* TagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1A705BE92514010600F6C17C /* twoUsers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = twoUsers.json; sourceTree = "<group>"; };
 		1A705BEB25179D1000F6C17C /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		1A705BED2522419300F6C17C /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		1A705BEF252275A200F6C17C /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				1A705BC42512AE9000F6C17C /* AppDelegate.swift */,
+				1A705BEF252275A200F6C17C /* TagView.swift */,
 				1A705BC62512AE9000F6C17C /* SceneDelegate.swift */,
 				1A705BCB2512AE9000F6C17C /* ContentView.swift */,
 				1A705BCD2512AE9200F6C17C /* Assets.xcassets */,
@@ -173,6 +176,7 @@
 			files = (
 				1A705BCA2512AE9000F6C17C /* FriendFace.xcdatamodeld in Sources */,
 				1A705BC52512AE9000F6C17C /* AppDelegate.swift in Sources */,
+				1A705BF0252275A200F6C17C /* TagView.swift in Sources */,
 				1A705BDE2512AF7400F6C17C /* User.swift in Sources */,
 				1A705BEC25179D1000F6C17C /* FriendsView.swift in Sources */,
 				1A705BDC2512AEB100F6C17C /* Friend.swift in Sources */,

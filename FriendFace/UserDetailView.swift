@@ -21,32 +21,22 @@ struct UserDetailView: View {
                             self.rowLayout(title: "Company", source: self.user.company)
                             self.rowLayout(title: "Email", source: self.user.email)
                             self.rowLayout(title: "Address", source: self.user.address)
-                           
+                            
                         }
                         Section{
                             self.rowLayout(title: "Registered", source: self.dateFormatted(date: self.user.registered))
                         }
                         
                         Section {
-                            HStack{
+                            NavigationLink(destination: TagView(show: self.user.tags)) {
                                 Text("Tags")
-                                Spacer()
-                                VStack(alignment: .leading){
-                                    ForEach(self.user.tags.chunked(into: 4), id:\.self) { row in
-                                        HStack{
-                                            ForEach(row, id:\.self) { k in
-                                                Text("#" + String(k))                          .modifier(TagStyle())
-                                            }
-                                        }
-                                    }
-                                }
                             }
-                        } // end of Section
-                        Spacer()
+                        }
+                        
                         Section {
                             NavigationLink(destination: FriendsView(friends: self.user.friends)) {
                                 Text("Friends")
-                            }.isDetailLink(true)
+                            }
                         }
                     }
                 }
@@ -100,6 +90,7 @@ extension View {
     func rowLayout<T:LosslessStringConvertible>(title: String, source: T) -> some View {
         HStack{
             Text(title)
+            Spacer()
             Spacer()
             Text(String(source))
         }

@@ -11,18 +11,15 @@ import SwiftUI
 struct FriendsView: View {
     let friends: [Friend]
     var body: some View {
-   //     NavigationView {
-            VStack{
-                List(friends, id: \.self) { friend in
-                    self.getFriendDetails(friend: friend, of: self.getUsers()).map{
-                        NavigationLink(destination: UserDetailView (user: $0)) {
-                            Text(friend.name)
-                        }.isDetailLink(false)
-                    }
+        VStack{
+            List(friends, id: \.self) { friend in
+                self.getFriendDetails(friend: friend, of: self.getUsers()).map{
+                    NavigationLink(destination: UserDetailView (user: $0)) {
+                        Text(friend.name)
+                    }.isDetailLink(false)
                 }
             }
-            
-        //}
+        }
     }
     
     

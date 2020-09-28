@@ -17,8 +17,8 @@ struct ContentView: View {
             List(self.getUsers(), id:\.self) { user in
                 NavigationLink(destination: UserDetailView(user: user)){
                         Text(user.name)
-                    }.isDetailLink(false)
-    }
+                    }
+            }.navigationBarTitle(Text("Friend List"))
         }}
     
     
