@@ -10,17 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
+    @State var showNavigationLink:Bool = false
     var body: some View {
         
         NavigationView {
             List(self.getUsers(), id:\.self) { user in
-                NavigationLink(user.name, destination: UserDetailView(user: user))
-                
-            }
-        }
-        
+                NavigationLink(destination: UserDetailView(user: user)){
+                        Text(user.name)
+                    }.isDetailLink(false)
     }
+        }}
     
     
     func getUsers() -> [User] {

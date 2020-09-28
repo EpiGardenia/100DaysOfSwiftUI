@@ -11,7 +11,7 @@ import SwiftUI
 struct UserDetailView: View {
     let user: User
     var body: some View {
-        NavigationView {
+      //  NavigationView {
             ZStack{
                 LinearGradient(gradient: Gradient(colors: [.purple, .pink]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
                 GeometryReader{ geometry in
@@ -21,8 +21,12 @@ struct UserDetailView: View {
                             self.rowLayout(title: "Company", source: self.user.company)
                             self.rowLayout(title: "Email", source: self.user.email)
                             self.rowLayout(title: "Address", source: self.user.address)
-                            self.rowLayout(title: "Registered", source: self.user.registered)
+                           
                         }
+                        Section{
+                            self.rowLayout(title: "Registered", source: self.dateFormatted(date: self.user.registered))
+                        }
+                        
                         Section {
                             HStack{
                                 Text("Tags")
@@ -42,15 +46,25 @@ struct UserDetailView: View {
                         Section {
                             NavigationLink(destination: FriendsView(friends: self.user.friends)) {
                                 Text("Friends")
-                            }
+                            }.isDetailLink(true)
                         }
                     }
                 }
             }
             .navigationBarTitle("   " + self.user.name)
             .padding(5)
-        } //End of NavigationView
+       // } //End of NavigationView
     }  // End of body View
+    
+    func dateFormatted(date: String) -> String {
+        let df = ISO8601DateFormatter()
+        df.formatOptions = .withInternetDateTime
+        let standardDate = df.date(from: date)
+        let dfNew = DateFormatter()
+        dfNew.timeStyle = .short
+        dfNew.dateStyle = .medium
+        return dfNew.string(from: standardDate!)
+    }
     
     func getFriendInfo(id: String) -> User? {
         guard let data = try? Data(contentsOf: URL(string: "https://www.hackingwithswift.com/samples/friendface.json")!) else {
