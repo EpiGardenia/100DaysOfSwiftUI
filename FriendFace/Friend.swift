@@ -8,17 +8,17 @@
 
 import Foundation
 
-
-struct Friend: Codable, Hashable {
-    let id: String
-    let name: String
-    
-    static func == (lhs: Friend, rhs: Friend) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-        hasher.combine(id)
-    }
-}
+//
+//struct Friend: Codable, Hashable {
+//    let id: String
+//    let name: String
+//    
+//    static func == (lhs: Friend, rhs: Friend) -> Bool {
+//        return lhs.id == rhs.id
+//    }
+//    
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(id)
+//        hasher.combine(id)
+//    }
+//}

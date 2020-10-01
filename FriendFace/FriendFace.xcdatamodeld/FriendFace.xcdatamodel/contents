@@ -3,6 +3,11 @@
     <entity name="Friend" representedClassName="Friend" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="of" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="friend" inverseEntity="User"/>
+    </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="tag" optional="YES" attributeType="String"/>
+        <relationship name="of" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tag" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String"/>
@@ -10,15 +15,16 @@
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="company" optional="YES" attributeType="String"/>
         <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="friend" optional="YES" attributeType="Transformable" customClassName="[Friend]"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="String"/>
-        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <relationship name="friend" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="of" inverseEntity="Friend"/>
+        <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="of" inverseEntity="Tag"/>
     </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="208"/>
-        <element name="Friend" positionX="-54" positionY="63" width="128" height="73"/>
+        <element name="Friend" positionX="-54" positionY="63" width="128" height="88"/>
+        <element name="Tag" positionX="-27" positionY="81" width="128" height="73"/>
     </elements>
 </model>
