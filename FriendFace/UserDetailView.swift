@@ -11,39 +11,36 @@ import SwiftUI
 struct UserDetailView: View {
     let user: User
     var body: some View {
-      //  NavigationView {
-            ZStack{
-                LinearGradient(gradient: Gradient(colors: [.purple, .pink]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
-                GeometryReader{ geometry in
-                    List{
-                        Section{
-                            self.rowLayout(title: "Age", source: self.user.age)
-                            self.rowLayout(title: "Company", source: self.user.company)
-                            self.rowLayout(title: "Email", source: self.user.email)
-                            self.rowLayout(title: "Address", source: self.user.address)
-                            
+        ZStack{
+            LinearGradient(gradient: Gradient(colors: [.purple, .pink]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+            GeometryReader{ geometry in
+                List{
+                    Section{
+                        self.rowLayout(title: "Age", source: self.user.age)
+                        self.rowLayout(title: "Company", source: self.user.company)
+                        self.rowLayout(title: "Email", source: self.user.email)
+                        self.rowLayout(title: "Address", source: self.user.address)
+                    }
+                    Section{
+                        self.rowLayout(title: "Registered", source: self.dateFormatted(date: self.user.registered))
+                    }
+                    
+                    Section {
+                        NavigationLink(destination: TagView(show: self.user.tags)) {
+                            Text("Tags")
                         }
-                        Section{
-                            self.rowLayout(title: "Registered", source: self.dateFormatted(date: self.user.registered))
-                        }
-                        
-                        Section {
-                            NavigationLink(destination: TagView(show: self.user.tags)) {
-                                Text("Tags")
-                            }
-                        }
-                        
-                        Section {
-                            NavigationLink(destination: FriendsView(friends: self.user.friends)) {
-                                Text("Friends")
-                            }
+                    }
+                    
+                    Section {
+                        NavigationLink(destination: FriendsView(friends: self.user.friends)) {
+                            Text("Friends").foregroundColor(.black)
                         }
                     }
                 }
             }
-            .navigationBarTitle("   " + self.user.name)
-            .padding(5)
-       // } //End of NavigationView
+        }
+        .navigationBarTitle("   " + self.user.name)
+        .padding(5)
     }  // End of body View
     
     func dateFormatted(date: String) -> String {
@@ -93,6 +90,7 @@ extension View {
             Spacer()
             Spacer()
             Text(String(source))
+                .foregroundColor(.gray)
         }
     }
     
