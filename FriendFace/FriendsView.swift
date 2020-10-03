@@ -15,7 +15,7 @@ struct FriendsView: View {
             List(friends, id: \.self) { friend in
                 self.getFriendDetails(friend: friend, of: self.getUsers()).map{
                     NavigationLink(destination: UserDetailView (user: $0)) {
-                        Text(friend.name)
+                        Text(friend.wrappedName)
                     }.isDetailLink(false)
                 }
             }
@@ -50,6 +50,6 @@ struct FriendsView: View {
 struct FriendsView_Previews: PreviewProvider {
     static let users: [User] = Bundle.main.decode(from: "twoUsers.json")
     static var previews: some View {
-        FriendsView(friends: users[1].friends)
+        FriendsView(friends: users[1].friendArray)
     }
 }

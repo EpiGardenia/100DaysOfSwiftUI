@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by T  on 2020-10-01.
+//  Created by T  on 2020-10-03.
 //  Copyright © 2020 AlaacLux. All rights reserved.
 //
 //
@@ -28,6 +28,52 @@ extension User {
     @NSManaged public var registered: String?
     @NSManaged public var tag: NSSet?
     @NSManaged public var friend: NSSet?
+    
+    public var wrappedId: String {
+        id ?? "<Unknown>"
+    }
+    
+    public var wrappedName: String {
+        name ?? "<Unknown>"
+    }
+    
+    
+    public var wrappedCompany: String {
+        company ?? "<Unknown>"
+    }
+    
+    public var wrappedEmail: String {
+        email ?? "<Unknown>"
+    }
+    
+    public var wrappedAddress: String {
+        address ?? "<Unknown>"
+    }
+    
+    public var wrappedAbout: String {
+        about ?? "<Unknown>"
+    }
+    
+    public var wrappedRegistered: String {
+        registered ?? "<Unknown>"
+    }
+    
+    public var tagArray: [Tag] {
+        let set = tag as? Set<Tag> ?? []
+        return set.sorted{
+            $0.wrappedTag < $1.wrappedTag
+        }
+    }
+    
+    
+    public var friendArray: [Friend] {
+        let set = friend as? Set<Friend> ?? []
+        
+        return set.sorted {
+            $0.wrappedName < $1.wrappedName
+        }
+    }
+    
 
 }
 

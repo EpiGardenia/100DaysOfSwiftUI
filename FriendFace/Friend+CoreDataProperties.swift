@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.swift
 //  FriendFace
 //
-//  Created by T  on 2020-10-01.
+//  Created by T  on 2020-10-03.
 //  Copyright © 2020 AlaacLux. All rights reserved.
 //
 //
@@ -19,7 +19,33 @@ extension Friend {
 
     @NSManaged public var id: String?
     @NSManaged public var name: String?
-    @NSManaged public var of: User?
+    @NSManaged public var of: NSSet?
+    
+    public var wrappedId: String {
+        id ?? "Unknown"
+    }
+    
+    public var wrappedName: String {
+        name ?? "Unknown"
+    }
+    
+
+}
+
+// MARK: Generated accessors for of
+extension Friend {
+
+    @objc(addOfObject:)
+    @NSManaged public func addToOf(_ value: User)
+
+    @objc(removeOfObject:)
+    @NSManaged public func removeFromOf(_ value: User)
+
+    @objc(addOf:)
+    @NSManaged public func addToOf(_ values: NSSet)
+
+    @objc(removeOf:)
+    @NSManaged public func removeFromOf(_ values: NSSet)
 
 }
 

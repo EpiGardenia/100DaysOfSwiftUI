@@ -17,29 +17,29 @@ struct UserDetailView: View {
                 List{
                     Section{
                         self.rowLayout(title: "Age", source: self.user.age)
-                        self.rowLayout(title: "Company", source: self.user.company)
-                        self.rowLayout(title: "Email", source: self.user.email)
-                        self.rowLayout(title: "Address", source: self.user.address)
+                        self.rowLayout(title: "Company", source: self.user.wrappedCompany)
+                        self.rowLayout(title: "Email", source: self.user.wrappedEmail)
+                        self.rowLayout(title: "Address", source: self.user.wrappedAddress)
                     }
                     Section{
-                        self.rowLayout(title: "Registered", source: self.dateFormatted(date: self.user.registered))
+                        self.rowLayout(title: "Registered", source: self.dateFormatted(date: self.user.wrappedRegistered))
                     }
                     
                     Section {
-                        NavigationLink(destination: TagView(show: self.user.tags)) {
+                        NavigationLink(destination: TagView(show: self.user.tagArray)) {
                             Text("Tags")
                         }
                     }
                     
                     Section {
-                        NavigationLink(destination: FriendsView(friends: self.user.friends)) {
+                        NavigationLink(destination: FriendsView(friends: self.user.friendArray)) {
                             Text("Friends").foregroundColor(.black)
                         }
                     }
                 }
             }
         }
-        .navigationBarTitle("   " + self.user.name)
+        .navigationBarTitle("   " + self.user.wrappedName)
         .padding(5)
     }  // End of body View
     

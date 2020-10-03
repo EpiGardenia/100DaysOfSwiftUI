@@ -13,7 +13,7 @@ struct TagView: View {
     var body: some View {
         VStack{
             List(show, id: \.self) { tag in
-                Text("#"+tag)
+                Text("#" + tag)
                     .foregroundColor(.blue)
             }
         }
