@@ -11,6 +11,8 @@
 		1A312FD92544A10000F505AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A312FD82544A10000F505AE /* ContentView.swift */; };
 		1A312FDB2544A10000F505AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A312FDA2544A10000F505AE /* Assets.xcassets */; };
 		1A312FDE2544A10000F505AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A312FDD2544A10000F505AE /* Preview Assets.xcassets */; };
+		1A312FEB2544AFD500F505AE /* Thriller@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A312FEA2544AFD500F505AE /* Thriller@2x.jpg */; };
+		1A312FEF2544B02000F505AE /* alpe-dhuez@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A312FEE2544B02000F505AE /* alpe-dhuez@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		1A312FDA2544A10000F505AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A312FDD2544A10000F505AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A312FDF2544A10000F505AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A312FEA2544AFD500F505AE /* Thriller@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Thriller@2x.jpg"; path = "../../Bookworm/Bookworm/Bookworm/Assets.xcassets/Thriller.imageset/Thriller@2x.jpg"; sourceTree = "<group>"; };
+		1A312FEE2544B02000F505AE /* alpe-dhuez@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "alpe-dhuez@2x.jpg"; path = "../../HackingWithSwift/HackingWithSwift/SwiftUI/project19-files/Images/alpe-dhuez@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				1A312FD62544A10000F505AE /* instafilterApp.swift */,
 				1A312FD82544A10000F505AE /* ContentView.swift */,
 				1A312FDA2544A10000F505AE /* Assets.xcassets */,
+				1A312FEE2544B02000F505AE /* alpe-dhuez@2x.jpg */,
+				1A312FEA2544AFD500F505AE /* Thriller@2x.jpg */,
 				1A312FDF2544A10000F505AE /* Info.plist */,
 				1A312FDC2544A10000F505AE /* Preview Content */,
 			);
@@ -127,7 +133,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A312FDE2544A10000F505AE /* Preview Assets.xcassets in Resources */,
+				1A312FEF2544B02000F505AE /* alpe-dhuez@2x.jpg in Resources */,
 				1A312FDB2544A10000F505AE /* Assets.xcassets in Resources */,
+				1A312FEB2544AFD500F505AE /* Thriller@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
