@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var image:Image?
     @State private var filterTitle = "Choose Filter"
     @State private var filterIntensity = 0.5
+    @State private var filterRadius = 10.0
     @State private var showingImagePicker = false
     @State private var showingImageFilter = false
     @State private var showingNoImageAlert = false
@@ -31,6 +32,15 @@ struct ContentView: View {
             }
         )
         
+        let radius = Binding<Double> (
+            get: {
+                self.filterRadius
+            },
+            set: {
+                self.filterRadius = $0
+                self.applyProcessing()
+            }
+        )
         return NavigationView {
             VStack{
                 ZStack{
@@ -56,6 +66,11 @@ struct ContentView: View {
                 HStack {
                     Text("Intensity")
                     Slider(value: intensity)
+                }
+                
+                HStack {
+                    Text("Radius")
+                    Slider(value: radius, in: 10.0...50.0)
                 }
                 .padding(.vertical)
                 
@@ -133,7 +148,7 @@ struct ContentView: View {
             currentFilter.setValue(filterIntensity*10, forKey: kCIInputScaleKey)
         }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity*200, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(filterRadius, forKey: kCIInputRadiusKey)
         }
       
         guard let outputImage = currentFilter.outputImage
