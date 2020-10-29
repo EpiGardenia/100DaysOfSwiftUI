@@ -13,12 +13,10 @@ struct ContentView: View {
     @State private var image:Image?
     @State private var filterIntensity = 0.5
     @State private var showingImagePicker = false
+    @State private var showingImageFilter = false
     @State private var inputImage: UIImage?
-    
-    @State var currentFilter = CIFilter.sepiaTone()
+    @State var currentFilter: CIFilter = CIFilter.sepiaTone()
     let context = CIContext()
-    
-    
     var body: some View {
         let intensity = Binding<Double> (
             get: {
@@ -27,10 +25,10 @@ struct ContentView: View {
             set: {
                 self.filterIntensity = $0
                 self.applyProcessing()
-            })
+            }
+        )
         
-        
-        return NavigationView{
+        return NavigationView {
             VStack{
                 ZStack{
                     Rectangle()
@@ -60,8 +58,7 @@ struct ContentView: View {
                 
                 HStack {
                     Button("Change Filter"){
-                        // change filter
-                        
+                      showingImageFilter = true
                     }
                     Spacer()
                     Button("Save"){
@@ -73,10 +70,22 @@ struct ContentView: View {
             .navigationBarTitle("Instafilter")
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
-
+            }
+            .actionSheet(isPresented: $showingImageFilter) {
+                ActionSheet(title: Text("Select a filter"), buttons:[
+                    .default(Text("Crystalize")) { self.setFilter(filter: CIFilter.crystallize())},
+                    .default(Text("Gausian Blur")) { self.setFilter(filter: CIFilter.gaussianBlur())},
+                    .default(Text("False Color")) { self.setFilter(filter: CIFilter.falseColor())},
+                    .default(Text("Bump Distortion Linear")) { self.setFilter(filter: CIFilter.bumpDistortionLinear())},
+                    .cancel()
+                        ])
             }
         }
-
+    }
+    
+    func setFilter(filter: CIFilter) {
+        self.currentFilter = filter
+        loadImage()
     }
     
     func loadImage() {
@@ -85,8 +94,19 @@ struct ContentView: View {
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyProcessing()
     }
+    
     func applyProcessing() {
-        currentFilter.intensity = Float(filterIntensity)
+        let inputKeys = currentFilter.inputKeys
+        if inputKeys.contains(kCIInputIntensityKey) {
+            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
+        }
+        if inputKeys.contains(kCIInputScaleKey) {
+            currentFilter.setValue(filterIntensity*10, forKey: kCIInputScaleKey)
+        }
+        if inputKeys.contains(kCIInputRadiusKey) {
+            currentFilter.setValue(filterIntensity*200, forKey: kCIInputRadiusKey)
+        }
+      
         guard let outputImage = currentFilter.outputImage
         else {return}
         
