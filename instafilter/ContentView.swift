@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var image:Image?
+    @State private var filterTitle = "Choose Filter"
     @State private var filterIntensity = 0.5
     @State private var showingImagePicker = false
     @State private var showingImageFilter = false
@@ -58,7 +59,7 @@ struct ContentView: View {
                 .padding(.vertical)
                 
                 HStack {
-                    Button("Change Filter"){
+                    Button(self.filterTitle){
                       showingImageFilter = true
                     }
                     Spacer()
@@ -82,11 +83,23 @@ struct ContentView: View {
                 ImagePicker(image: self.$inputImage)
             }
             .actionSheet(isPresented: $showingImageFilter) {
-                ActionSheet(title: Text("Select a filter"), buttons:[
-                    .default(Text("Crystalize")) { self.setFilter(filter: CIFilter.crystallize())},
-                    .default(Text("Gausian Blur")) { self.setFilter(filter: CIFilter.gaussianBlur())},
-                    .default(Text("False Color")) { self.setFilter(filter: CIFilter.falseColor())},
-                    .default(Text("Bump Distortion Linear")) { self.setFilter(filter: CIFilter.bumpDistortionLinear())},
+                ActionSheet(title: Text("Select a filter") , buttons:[
+                    .default(Text("Crystalize")) {
+                        self.setFilter(filter: CIFilter.crystallize())
+                        filterTitle = "Crystalize"
+                    },
+                    .default(Text("Gausian Blur")) {
+                        self.setFilter(filter: CIFilter.gaussianBlur())
+                        filterTitle = "Gausian Blur"
+                    },
+                    .default(Text("False Color")) {
+                        self.setFilter(filter: CIFilter.falseColor())
+                        filterTitle = "False Color"
+                    },
+                    .default(Text("Bump Distortion Linear")) {
+                        self.setFilter(filter: CIFilter.bumpDistortionLinear())
+                        filterTitle = "Bump Distortion Linear"
+                    },
                     .cancel()
                         ])
             }
