@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var filterIntensity = 0.5
     @State private var showingImagePicker = false
     @State private var showingImageFilter = false
+    @State private var showingNoImageAlert = false
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
     @State var currentFilter: CIFilter = CIFilter.sepiaTone()
@@ -64,7 +65,9 @@ struct ContentView: View {
                     }
                     Spacer()
                     Button("Save"){
-                        guard let processedImage = self.processedImage else { return }
+                        guard let processedImage = self.processedImage else {
+                            showingNoImageAlert = true
+                            return }
                         let imageSaver = ImageSaver()
                         imageSaver.successHandler = {
                             print("Success!")
@@ -81,6 +84,9 @@ struct ContentView: View {
             .navigationBarTitle("Instafilter")
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
+            }
+            .alert(isPresented: $showingNoImageAlert) {
+                Alert(title: Text("No Image to Save"), dismissButton: .default(Text("OK")))
             }
             .actionSheet(isPresented: $showingImageFilter) {
                 ActionSheet(title: Text("Select a filter") , buttons:[
