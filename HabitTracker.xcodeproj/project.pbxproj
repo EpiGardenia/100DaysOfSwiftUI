@@ -15,6 +15,7 @@
 		1A8D028D24CE113D0039B1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D028B24CE113D0039B1AE /* LaunchScreen.storyboard */; };
 		1A8D029924D0B0E30039B1AE /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D029824D0B0E30039B1AE /* AddActivityView.swift */; };
 		1A8D029B24D141C00039B1AE /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D029A24D141C00039B1AE /* HabitView.swift */; };
+		1AD2F01E254E13F000E64737 /* HabitTracker.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1AD2F01D254E13F000E64737 /* HabitTracker.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1A8D028E24CE113D0039B1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A8D029824D0B0E30039B1AE /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 		1A8D029A24D141C00039B1AE /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
+		1AD2F01D254E13F000E64737 /* HabitTracker.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = HabitTracker.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		1A8D027424CE113C0039B1AE = {
 			isa = PBXGroup;
 			children = (
+				1AD2F01C254E13F000E64737 /* Demo */,
 				1A8D027F24CE113C0039B1AE /* HabitTracker */,
 				1A8D027E24CE113C0039B1AE /* Products */,
 			);
@@ -79,6 +82,14 @@
 				1A8D028924CE113D0039B1AE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1AD2F01C254E13F000E64737 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				1AD2F01D254E13F000E64737 /* HabitTracker.mov */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD2F01E254E13F000E64737 /* HabitTracker.mov in Resources */,
 				1A8D028D24CE113D0039B1AE /* LaunchScreen.storyboard in Resources */,
 				1A8D028A24CE113D0039B1AE /* Preview Assets.xcassets in Resources */,
 				1A8D028724CE113D0039B1AE /* Assets.xcassets in Resources */,
