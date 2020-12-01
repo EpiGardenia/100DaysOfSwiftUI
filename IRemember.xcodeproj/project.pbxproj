@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A7378322575892700ECD121 /* AddNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7378312575892700ECD121 /* AddNameView.swift */; };
 		1AD2F0A62559B9D200E64737 /* IRememberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2F0A52559B9D200E64737 /* IRememberApp.swift */; };
 		1AD2F0A82559B9D200E64737 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2F0A72559B9D200E64737 /* ContentView.swift */; };
 		1AD2F0AA2559B9D200E64737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD2F0A92559B9D200E64737 /* Assets.xcassets */; };
 		1AD2F0AD2559B9D200E64737 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD2F0AC2559B9D200E64737 /* Preview Assets.xcassets */; };
+		1AD2F0B62559BDEC00E64737 /* CurrentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2F0B52559BDEC00E64737 /* CurrentListView.swift */; };
+		1AD2F1222569850700E64737 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2F1212569850700E64737 /* ImagePicker.swift */; };
+		1AD2F12525699D2500E64737 /* AddNewPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2F12425699D2500E64737 /* AddNewPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A7378312575892700ECD121 /* AddNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNameView.swift; sourceTree = "<group>"; };
 		1AD2F0A22559B9D200E64737 /* IRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD2F0A52559B9D200E64737 /* IRememberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRememberApp.swift; sourceTree = "<group>"; };
 		1AD2F0A72559B9D200E64737 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1AD2F0A92559B9D200E64737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AD2F0AC2559B9D200E64737 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1AD2F0AE2559B9D200E64737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AD2F0B52559BDEC00E64737 /* CurrentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentListView.swift; sourceTree = "<group>"; };
+		1AD2F1212569850700E64737 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		1AD2F12425699D2500E64737 /* AddNewPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +62,13 @@
 			children = (
 				1AD2F0A52559B9D200E64737 /* IRememberApp.swift */,
 				1AD2F0A72559B9D200E64737 /* ContentView.swift */,
+				1AD2F0B52559BDEC00E64737 /* CurrentListView.swift */,
 				1AD2F0A92559B9D200E64737 /* Assets.xcassets */,
 				1AD2F0AE2559B9D200E64737 /* Info.plist */,
+				1AD2F12425699D2500E64737 /* AddNewPhotoView.swift */,
 				1AD2F0AB2559B9D200E64737 /* Preview Content */,
+				1AD2F1212569850700E64737 /* ImagePicker.swift */,
+				1A7378312575892700ECD121 /* AddNameView.swift */,
 			);
 			path = IRemember;
 			sourceTree = "<group>";
@@ -138,8 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD2F12525699D2500E64737 /* AddNewPhotoView.swift in Sources */,
 				1AD2F0A82559B9D200E64737 /* ContentView.swift in Sources */,
+				1AD2F1222569850700E64737 /* ImagePicker.swift in Sources */,
+				1AD2F0B62559BDEC00E64737 /* CurrentListView.swift in Sources */,
 				1AD2F0A62559B9D200E64737 /* IRememberApp.swift in Sources */,
+				1A7378322575892700ECD121 /* AddNameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
