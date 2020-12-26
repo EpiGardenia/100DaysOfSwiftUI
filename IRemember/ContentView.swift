@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var pickedImage: UIImage?
     @State private var showingImagePicker = false
     @State private var askingName = false
-    @State private var showGreeting = false
+    @State private var savingData = false
     @State private var name=""
     
     var body: some View {
@@ -21,6 +21,20 @@ struct ContentView: View {
                 //Current List view
                 // TODO: Namelist loaded from core data
                 Text("Hello")
+                if let contacts = readJsonData()
+                {
+                    List(contacts.sorted()){ contact in
+                        //let contactImage = Image(uiImage: UIImage(data: contact.photo) ?? UIImage(systemName: "swift")!)
+                        NavigationLink(destination: ContactView(name: contact.name/*, photo: contactImage*/)) {
+                            Text(contact.name)
+                        }
+                        
+                    }
+                }
+                Button("Clear all data"){
+                    clearData()
+                }
+                
                 
             }.navigationBarTitle("I Remember!", displayMode: .large)
             .navigationBarItems(trailing: Button(action:{
@@ -29,15 +43,45 @@ struct ContentView: View {
                                     .sheet(isPresented: $showingImagePicker, onDismiss: { askingName = true } ) {
                                         ImagePicker(image: self.$pickedImage)
                                     })
-            .sheet(isPresented: self.$askingName, onDismiss: {self.showGreeting = true}){
-                AddNameView(name: self.$name)
+            .sheet(isPresented: self.$askingName, onDismiss: {self.savingData = true}){
+              //  if let chosen = self.pickedImage {
+                    AddNameView(photo: self.pickedImage)
+              //  }
             }
-            .alert(isPresented: self.$showGreeting) {
-                Alert(title: Text("Greeting"), message: Text("Hi! \(self.name)"), primaryButton: .default(Text("Hi!")), secondaryButton: Alert.Button.cancel())
-            }
-            
         }// end of NavigationView
     } // end of body:view
+
+    func clearData() {
+        try? FileManager.default.removeItem(atPath: getContactPath().path)
+    }
+    
+    func readJsonData() -> [Contact]? {
+        
+        let path = getContactPath()
+
+        if FileManager.default.fileExists(atPath: path.path) {
+            let decoder = JSONDecoder()
+            do {
+                guard let data = try? Data(contentsOf: path) else {
+                    fatalError("Failed to load data from file")
+                }
+                print(String(data: data, encoding: .utf8)!)
+                let decoded = try decoder.decode([Contact].self, from: data)
+                print(decoded[0].name)
+                return decoded
+            } catch{
+                print("Failed to decode Json")
+            }
+        }
+        return nil
+    }
+    
+    func getContactPath() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fullPath = path[0].appendingPathComponent("contacts.json")
+        print(fullPath)
+        return fullPath
+    }
     
 }//end of View
 

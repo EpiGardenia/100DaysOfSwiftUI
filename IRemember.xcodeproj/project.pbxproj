@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A002FDE25976F3200F70036 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A002FDD25976F3200F70036 /* Contact.swift */; };
+		1A002FE225977D3600F70036 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A002FE125977D3600F70036 /* ContactView.swift */; };
 		1A7378322575892700ECD121 /* AddNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7378312575892700ECD121 /* AddNameView.swift */; };
 		1AD2F0A62559B9D200E64737 /* IRememberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2F0A52559B9D200E64737 /* IRememberApp.swift */; };
 		1AD2F0A82559B9D200E64737 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2F0A72559B9D200E64737 /* ContentView.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A002FDD25976F3200F70036 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		1A002FE125977D3600F70036 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		1A7378312575892700ECD121 /* AddNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNameView.swift; sourceTree = "<group>"; };
 		1AD2F0A22559B9D200E64737 /* IRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD2F0A52559B9D200E64737 /* IRememberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRememberApp.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				1AD2F0AB2559B9D200E64737 /* Preview Content */,
 				1AD2F1212569850700E64737 /* ImagePicker.swift */,
 				1A7378312575892700ECD121 /* AddNameView.swift */,
+				1A002FDD25976F3200F70036 /* Contact.swift */,
+				1A002FE125977D3600F70036 /* ContactView.swift */,
 			);
 			path = IRemember;
 			sourceTree = "<group>";
@@ -153,9 +159,11 @@
 				1AD2F12525699D2500E64737 /* AddNewPhotoView.swift in Sources */,
 				1AD2F0A82559B9D200E64737 /* ContentView.swift in Sources */,
 				1AD2F1222569850700E64737 /* ImagePicker.swift in Sources */,
+				1A002FE225977D3600F70036 /* ContactView.swift in Sources */,
 				1AD2F0B62559BDEC00E64737 /* CurrentListView.swift in Sources */,
 				1AD2F0A62559B9D200E64737 /* IRememberApp.swift in Sources */,
 				1A7378322575892700ECD121 /* AddNameView.swift in Sources */,
+				1A002FDE25976F3200F70036 /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
