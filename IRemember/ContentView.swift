@@ -5,6 +5,13 @@
 //  Created by T  on 2020-11-09.
 //
 
+/*
+ Known issue:
+   The first time picking image, the image doesn't pass to addNameView successfully, but rather a nil.
+   It becomes normal from the second time.
+   Not using double sheet might solve the problem.
+ */
+
 import SwiftUI
 
 struct ContentView: View {
@@ -37,13 +44,14 @@ struct ContentView: View {
             }.navigationBarTitle("I Remember!", displayMode: .large)
             .navigationBarItems(trailing: Button(action:{self.showingImagePicker = true}) {
                 Image(systemName: "plus")
-            }.sheet(isPresented: $showingImagePicker, onDismiss: { askingName = true } ) {
-                ImagePicker(image: $pickedImage)
+            }.sheet(isPresented: $showingImagePicker, onDismiss: { askingName = true}) {
+                ImagePicker(image: $pickedImage);
             })
-            .sheet(isPresented: $askingName, onDismiss: {loadJsonData()}){
-               //   if let chosen = self.pickedImage {
-                    AddNameView(photo: self.pickedImage)
-               //  }
+            .sheet(isPresented: $askingName, onDismiss: loadJsonData){
+                //   if let chosen = self.pickedImage {
+                AddNameView(photo: self.pickedImage)
+                //  }
+                
             }
             .onAppear(){
                 loadJsonData()
