@@ -15,8 +15,6 @@ struct AddNameView: View {
     let photo: UIImage?
     var body: some View {
         VStack{
-            // show photo
-            
             Text("Name:")
             TextField("Add Name", text: self.$name)
                 .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -24,7 +22,6 @@ struct AddNameView: View {
                 Text(verbatim: "Save")
             }
         }
-        
     }
     
     func saveButtonClicked(){
@@ -39,8 +36,7 @@ struct AddNameView: View {
     func getDocDir() -> URL {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return path[0]
-    }
-    
+    }    
 }
 
 struct AddNameView_Previews: PreviewProvider {

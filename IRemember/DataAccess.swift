@@ -67,7 +67,10 @@ func appendContactToFile(newContact: Contact, filePath: URL){
 
 func getDataFromJSONFile(path: URL) -> [Contact]{
     if let data = fetchDataFromFile(path) {
-        return decodeData(data: data)
+        printJSONFile(data: data)
+        let decoded = decodeData(data: data)
+       
+        return decoded
     }
     return []
 }

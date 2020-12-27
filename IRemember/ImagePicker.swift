@@ -14,6 +14,7 @@ struct ImagePicker: UIViewControllerRepresentable{
             self.parent = parent
         }
         
+        // handing after user has chosen an image
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let uiImage = info[.originalImage] as?
                 UIImage{

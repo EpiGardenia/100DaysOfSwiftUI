@@ -14,22 +14,22 @@ struct ContentView: View {
     @State private var askingName = false
     @State private var savingData = false
     @State private var name=""
+    @State private var contacts = [Contact]()
+    
+    init() {
+        loadJsonData()
+        print(contacts)
+    }
     
     var body: some View {
         NavigationView {
             VStack{
-                //Current List view
-                // TODO: Namelist loaded from core data
-                Text("Hello")
-                if let contacts = readJsonData()
-                {
-                    List(contacts.sorted()){ contact in
+                List(contacts.sorted()){ contact in
                         //let contactImage = Image(uiImage: UIImage(data: contact.photo) ?? UIImage(systemName: "swift")!)
                         NavigationLink(destination: ContactView(name: contact.name/*, photo: contactImage*/)) {
                             Text(contact.name)
                         }
                     }
-                }
                 Button("Clear all data"){
                     clearData()
                 }
@@ -40,16 +40,24 @@ struct ContentView: View {
             }.sheet(isPresented: $showingImagePicker, onDismiss: { askingName = true } ) {
                 ImagePicker(image: self.$pickedImage)
             })
-            .sheet(isPresented: self.$askingName, onDismiss: {self.savingData = true}){
+            .sheet(isPresented: self.$askingName, onDismiss: {loadJsonData()}){
                 //  if let chosen = self.pickedImage {
                 AddNameView(photo: self.pickedImage)
                 //  }
+            }
+            .onAppear(){
+                loadJsonData()
             }
         }// end of NavigationView
     } // end of body:view
 
     func clearData() {
         try? FileManager.default.removeItem(atPath: getContactPath().path)
+    }
+    
+    func loadJsonData() {
+        contacts = getDataFromJSONFile(path: getContactPath())
+        print(contacts)
     }
     
     func readJsonData() -> [Contact] {
