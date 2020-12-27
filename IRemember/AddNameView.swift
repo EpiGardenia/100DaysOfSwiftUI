@@ -28,56 +28,12 @@ struct AddNameView: View {
     }
     
     func saveButtonClicked(){
-        // get a directory path in disk
+        // Save contact in json file
         let path = getDocDir().appendingPathComponent("contacts.json")
-        // save in struct
-        do {
-            //   if let jpegData = photo.jpegData(compressionQuality: 0.8) {
-            let newContact = Contact(name: self.name/*, photo: jpegData*/)
-            let encoder = JSONEncoder()
-            encoder.outputFormatting = .prettyPrinted
-            // read json file
-            if FileManager.default.fileExists(atPath: path.path)
-            {
-                guard let diskData = try? Data(contentsOf: path) else {
-                    fatalError("Failed to load data from file")
-                }
-                let decoder = JSONDecoder()
-                if var decodedDiskData = try? decoder.decode([Contact].self, from: diskData) {
-                    decodedDiskData.append(newContact)
-                    if let encoded = try? encoder.encode(decodedDiskData) {
-                        try encoded.write(to: path, options: [.atomicWrite, .completeFileProtection])
-                    }
-                }
-  
-            }
-            else
-            {
-                if let encoded = try? encoder.encode([newContact]) {
-                    try encoded.write(to: path, options: [.atomicWrite, .completeFileProtection])
-                }
-            }
-            let decoder = JSONDecoder()
-            guard let data = try? Data(contentsOf: path) else {
-                fatalError("Failed to load data from file")
-            }
-            let decoded = try decoder.decode([Contact].self, from: data)
-            print(decoded[0].name)
-        } catch {
-            print(error.localizedDescription)
-        }
-
-        // test of read
-        
-        
-        
+        let newContact = Contact(name: self.name/*, photo: jpegData*/)
+        appendContactToFile(newContact: newContact, filePath: path)
         // dismiss view
         presentationMode.wrappedValue.dismiss()
-    }
-    
-    func saveToPath(path:String, content:String)
-    {
-        
     }
     
     func getDocDir() -> URL {

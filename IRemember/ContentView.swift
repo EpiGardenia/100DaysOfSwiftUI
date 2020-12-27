@@ -28,25 +28,22 @@ struct ContentView: View {
                         NavigationLink(destination: ContactView(name: contact.name/*, photo: contactImage*/)) {
                             Text(contact.name)
                         }
-                        
                     }
                 }
                 Button("Clear all data"){
                     clearData()
                 }
                 
-                
             }.navigationBarTitle("I Remember!", displayMode: .large)
-            .navigationBarItems(trailing: Button(action:{
-                                                    self.showingImagePicker = true}) {
-                                    Image(systemName: "plus")}
-                                    .sheet(isPresented: $showingImagePicker, onDismiss: { askingName = true } ) {
-                                        ImagePicker(image: self.$pickedImage)
-                                    })
+            .navigationBarItems(trailing: Button(action:{self.showingImagePicker = true}) {
+                Image(systemName: "plus")
+            }.sheet(isPresented: $showingImagePicker, onDismiss: { askingName = true } ) {
+                ImagePicker(image: self.$pickedImage)
+            })
             .sheet(isPresented: self.$askingName, onDismiss: {self.savingData = true}){
-              //  if let chosen = self.pickedImage {
-                    AddNameView(photo: self.pickedImage)
-              //  }
+                //  if let chosen = self.pickedImage {
+                AddNameView(photo: self.pickedImage)
+                //  }
             }
         }// end of NavigationView
     } // end of body:view
@@ -55,25 +52,10 @@ struct ContentView: View {
         try? FileManager.default.removeItem(atPath: getContactPath().path)
     }
     
-    func readJsonData() -> [Contact]? {
-        
+    func readJsonData() -> [Contact] {
         let path = getContactPath()
-
-        if FileManager.default.fileExists(atPath: path.path) {
-            let decoder = JSONDecoder()
-            do {
-                guard let data = try? Data(contentsOf: path) else {
-                    fatalError("Failed to load data from file")
-                }
-                print(String(data: data, encoding: .utf8)!)
-                let decoded = try decoder.decode([Contact].self, from: data)
-                print(decoded[0].name)
-                return decoded
-            } catch{
-                print("Failed to decode Json")
-            }
-        }
-        return nil
+        let contacts = getDataFromJSONFile(path: path)
+        return contacts
     }
     
     func getContactPath() -> URL {
