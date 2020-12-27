@@ -76,6 +76,6 @@ func getDataFromJSONFile(path: URL) -> [Contact]{
 }
 
 func printJSONFile(data: Data){
-    print(String(data: data, encoding: .utf8) ?? "Can't Print JSON file")
+   // data.map{print(String(data: $0.name, encoding: .utf8) ?? "Can't Print JSON file");}
 }
 

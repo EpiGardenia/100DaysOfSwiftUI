@@ -17,5 +17,6 @@ struct Contact: Identifiable, Comparable, Codable{
     
     var id = UUID()
     let name: String
-  //  let photo: Data
+    // jpegdata
+    let photo: Data
 }

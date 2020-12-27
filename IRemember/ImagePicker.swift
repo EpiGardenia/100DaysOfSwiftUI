@@ -19,6 +19,8 @@ struct ImagePicker: UIViewControllerRepresentable{
             if let uiImage = info[.originalImage] as?
                 UIImage{
                 parent.image = uiImage
+            } else {
+                print(" Failed to choose image")
             }
             parent.presentationMode.wrappedValue.dismiss()
         }

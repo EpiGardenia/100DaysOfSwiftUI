@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AddNameView: View {
     @Environment(\.presentationMode) var presentationMode
-    //@Binding var name: String
     @State private var name: String = ""
     let photo: UIImage?
     var body: some View {
@@ -21,14 +20,23 @@ struct AddNameView: View {
             Button(action: {self.saveButtonClicked()}){
                 Text(verbatim: "Save")
             }
+        }.onAppear(){
+            if photo == nil {
+                presentationMode.wrappedValue.dismiss()
+            }
         }
     }
     
     func saveButtonClicked(){
         // Save contact in json file
         let path = getDocDir().appendingPathComponent("contacts.json")
-        let newContact = Contact(name: self.name/*, photo: jpegData*/)
-        appendContactToFile(newContact: newContact, filePath: path)
+        if let jpegPhoto = self.photo!.jpegData(compressionQuality: 0.8) {
+            let newContact = Contact(name: self.name, photo: jpegPhoto)
+            appendContactToFile(newContact: newContact, filePath: path)
+        } else {
+            print("Failed to compress image")
+        }
+
         // dismiss view
         presentationMode.wrappedValue.dismiss()
     }

@@ -9,17 +9,20 @@ import SwiftUI
 
 struct ContactView: View {
     let name: String
-   // let photo: Image
+    let photo: Image
     
     var body: some View {
-//        photo
-//            .resizable()
+        VStack {
+        photo
+            .resizable()
+            .scaledToFit()
         Text(name)
+        }
     }
 }
 
 struct ContactView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactView(name: "Salad"/*, photo: Image(systemName: "applelogo")*/)
+        ContactView(name: "Salad", photo: Image(systemName: "applelogo"))
     }
 }

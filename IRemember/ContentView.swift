@@ -15,19 +15,19 @@ struct ContentView: View {
     @State private var savingData = false
     @State private var name=""
     @State private var contacts = [Contact]()
-    
-    init() {
-        loadJsonData()
-        print(contacts)
-    }
-    
+ 
     var body: some View {
         NavigationView {
             VStack{
                 List(contacts.sorted()){ contact in
-                        //let contactImage = Image(uiImage: UIImage(data: contact.photo) ?? UIImage(systemName: "swift")!)
-                        NavigationLink(destination: ContactView(name: contact.name/*, photo: contactImage*/)) {
+                        let contactImage = Image(uiImage: UIImage(data: contact.photo) ?? UIImage(systemName: "swift")!)
+                        NavigationLink(destination: ContactView(name: contact.name, photo: contactImage)) {
+                            HStack{
+                            contactImage
+                                .resizable()
+                                .frame(width: 50, height: 50)
                             Text(contact.name)
+                            }
                         }
                     }
                 Button("Clear all data"){
@@ -38,12 +38,12 @@ struct ContentView: View {
             .navigationBarItems(trailing: Button(action:{self.showingImagePicker = true}) {
                 Image(systemName: "plus")
             }.sheet(isPresented: $showingImagePicker, onDismiss: { askingName = true } ) {
-                ImagePicker(image: self.$pickedImage)
+                ImagePicker(image: $pickedImage)
             })
-            .sheet(isPresented: self.$askingName, onDismiss: {loadJsonData()}){
-                //  if let chosen = self.pickedImage {
-                AddNameView(photo: self.pickedImage)
-                //  }
+            .sheet(isPresented: $askingName, onDismiss: {loadJsonData()}){
+               //   if let chosen = self.pickedImage {
+                    AddNameView(photo: self.pickedImage)
+               //  }
             }
             .onAppear(){
                 loadJsonData()
@@ -53,11 +53,12 @@ struct ContentView: View {
 
     func clearData() {
         try? FileManager.default.removeItem(atPath: getContactPath().path)
+        loadJsonData()
     }
     
     func loadJsonData() {
         contacts = getDataFromJSONFile(path: getContactPath())
-        print(contacts)
+       // print(contacts)
     }
     
     func readJsonData() -> [Contact] {
@@ -69,7 +70,7 @@ struct ContentView: View {
     func getContactPath() -> URL {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fullPath = path[0].appendingPathComponent("contacts.json")
-        print(fullPath)
+      //  print(fullPath)
         return fullPath
     }
     
