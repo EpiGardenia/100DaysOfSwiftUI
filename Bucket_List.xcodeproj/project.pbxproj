@@ -16,6 +16,7 @@
 		1A003048259F7BC100F70036 /* AccessDirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A003047259F7BC100F70036 /* AccessDirectoryView.swift */; };
 		1A00304B259F7D2100F70036 /* FileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00304A259F7D2100F70036 /* FileAccess.swift */; };
 		1A00304E259F81CC00F70036 /* EnumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00304D259F81CC00F70036 /* EnumView.swift */; };
+		1A00305125A1A55600F70036 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00305025A1A55600F70036 /* ResultType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1A003047259F7BC100F70036 /* AccessDirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessDirectoryView.swift; sourceTree = "<group>"; };
 		1A00304A259F7D2100F70036 /* FileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAccess.swift; sourceTree = "<group>"; };
 		1A00304D259F81CC00F70036 /* EnumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumView.swift; sourceTree = "<group>"; };
+		1A00305025A1A55600F70036 /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				1A003047259F7BC100F70036 /* AccessDirectoryView.swift */,
 				1A003043259F768500F70036 /* ComparableView.swift */,
 				1A00304D259F81CC00F70036 /* EnumView.swift */,
+				1A00305025A1A55600F70036 /* ResultType.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				1A003031259F751900F70036 /* ContentView.swift in Sources */,
 				1A00302F259F751900F70036 /* Bucket_ListApp.swift in Sources */,
 				1A00304B259F7D2100F70036 /* FileAccess.swift in Sources */,
+				1A00305125A1A55600F70036 /* ResultType.swift in Sources */,
 				1A00303F259F760C00F70036 /* User.swift in Sources */,
 				1A00304E259F81CC00F70036 /* EnumView.swift in Sources */,
 				1A003048259F7BC100F70036 /* AccessDirectoryView.swift in Sources */,

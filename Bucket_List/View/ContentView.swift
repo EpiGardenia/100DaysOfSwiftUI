@@ -11,7 +11,8 @@ struct ContentView: View {
     var body: some View {
         //ComparableView()
         //AccessDirectoryView()
-        EnumView()
+        //EnumView()
+        ResultType()
     }
 }
 
