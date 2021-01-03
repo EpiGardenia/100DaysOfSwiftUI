@@ -19,6 +19,7 @@
 		1A65469525A1C96000CE2E67 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469425A1C96000CE2E67 /* ResultType.swift */; };
 		1A65469825A1C9A200CE2E67 /* ObjectWillChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469725A1C9A200CE2E67 /* ObjectWillChangeView.swift */; };
 		1A65469C25A1C9D000CE2E67 /* DelaydUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469B25A1C9D000CE2E67 /* DelaydUpdater.swift */; };
+		1A6546A025A1CDCA00CE2E67 /* ImageInterpolationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469F25A1CDCA00CE2E67 /* ImageInterpolationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		1A65469425A1C96000CE2E67 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
 		1A65469725A1C9A200CE2E67 /* ObjectWillChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectWillChangeView.swift; sourceTree = "<group>"; };
 		1A65469B25A1C9D000CE2E67 /* DelaydUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelaydUpdater.swift; sourceTree = "<group>"; };
+		1A65469F25A1CDCA00CE2E67 /* ImageInterpolationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInterpolationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				1A00301C259F6E7200F70036 /* ViewC.swift */,
 				1A00301F259F707000F70036 /* TabViews.swift */,
 				1A65469725A1C9A200CE2E67 /* ObjectWillChangeView.swift */,
+				1A65469F25A1CDCA00CE2E67 /* ImageInterpolationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				1A65469825A1C9A200CE2E67 /* ObjectWillChangeView.swift in Sources */,
 				1A003002259F6BC700F70036 /* Hot_ProspectsApp.swift in Sources */,
 				1A003016259F6DE200F70036 /* ViewA.swift in Sources */,
+				1A6546A025A1CDCA00CE2E67 /* ImageInterpolationView.swift in Sources */,
 				1A65469525A1C96000CE2E67 /* ResultType.swift in Sources */,
 				1A00301D259F6E7200F70036 /* ViewC.swift in Sources */,
 				1A003020259F707000F70036 /* TabViews.swift in Sources */,
