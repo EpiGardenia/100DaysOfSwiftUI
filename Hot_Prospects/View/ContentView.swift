@@ -12,7 +12,9 @@ struct ContentView: View {
         //TabViews()
         //ObjectWillChangeView()
         //ImageInterpolationView()
-        Day81_ContextMenu()
+        //Day81_ContextMenu()
+        //Day81_localNotification()
+        Day81_AddPackage()
     }
 }
 
