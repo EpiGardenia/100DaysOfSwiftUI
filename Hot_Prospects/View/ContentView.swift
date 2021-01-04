@@ -11,7 +11,8 @@ struct ContentView: View {
     var body: some View {
         //TabViews()
         //ObjectWillChangeView()
-        ImageInterpolationView()
+        //ImageInterpolationView()
+        Day81_ContextMenu()
     }
 }
 
