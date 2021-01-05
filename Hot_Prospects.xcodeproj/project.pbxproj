@@ -24,6 +24,9 @@
 		1A6546BF25A31E5600CE2E67 /* Day81_localNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6546BE25A31E5600CE2E67 /* Day81_localNotification.swift */; };
 		1A6546C325A32B8000CE2E67 /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A6546C225A32B8000CE2E67 /* SamplePackage */; };
 		1A6546C625A32BA900CE2E67 /* Day81_AddPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6546C525A32BA900CE2E67 /* Day81_AddPackage.swift */; };
+		1A6546CA25A4C55800CE2E67 /* Hot Prospects View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6546C925A4C55800CE2E67 /* Hot Prospects View.swift */; };
+		1A6546CF25A4C5D100CE2E67 /* ProspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6546CE25A4C5D100CE2E67 /* ProspectView.swift */; };
+		1A6546D225A4C5DB00CE2E67 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6546D125A4C5DB00CE2E67 /* MeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		1A6546BA25A3140200CE2E67 /* Day81_ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day81_ContextMenu.swift; sourceTree = "<group>"; };
 		1A6546BE25A31E5600CE2E67 /* Day81_localNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day81_localNotification.swift; sourceTree = "<group>"; };
 		1A6546C525A32BA900CE2E67 /* Day81_AddPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day81_AddPackage.swift; sourceTree = "<group>"; };
+		1A6546C925A4C55800CE2E67 /* Hot Prospects View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hot Prospects View.swift"; sourceTree = "<group>"; };
+		1A6546CE25A4C5D100CE2E67 /* ProspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectView.swift; sourceTree = "<group>"; };
+		1A6546D125A4C5DB00CE2E67 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,9 @@
 				1A6546BA25A3140200CE2E67 /* Day81_ContextMenu.swift */,
 				1A6546BE25A31E5600CE2E67 /* Day81_localNotification.swift */,
 				1A6546C525A32BA900CE2E67 /* Day81_AddPackage.swift */,
+				1A6546C925A4C55800CE2E67 /* Hot Prospects View.swift */,
+				1A6546CE25A4C5D100CE2E67 /* ProspectView.swift */,
+				1A6546D125A4C5DB00CE2E67 /* MeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,14 +212,17 @@
 				1A6546C625A32BA900CE2E67 /* Day81_AddPackage.swift in Sources */,
 				1A00301A259F6E4400F70036 /* ViewB.swift in Sources */,
 				1A6546BF25A31E5600CE2E67 /* Day81_localNotification.swift in Sources */,
+				1A6546CA25A4C55800CE2E67 /* Hot Prospects View.swift in Sources */,
 				1A65469825A1C9A200CE2E67 /* ObjectWillChangeView.swift in Sources */,
 				1A003002259F6BC700F70036 /* Hot_ProspectsApp.swift in Sources */,
+				1A6546CF25A4C5D100CE2E67 /* ProspectView.swift in Sources */,
 				1A003016259F6DE200F70036 /* ViewA.swift in Sources */,
 				1A6546A025A1CDCA00CE2E67 /* ImageInterpolationView.swift in Sources */,
 				1A65469525A1C96000CE2E67 /* ResultType.swift in Sources */,
 				1A00301D259F6E7200F70036 /* ViewC.swift in Sources */,
 				1A003020259F707000F70036 /* TabViews.swift in Sources */,
 				1A6546BB25A3140200CE2E67 /* Day81_ContextMenu.swift in Sources */,
+				1A6546D225A4C5DB00CE2E67 /* MeView.swift in Sources */,
 				1A003012259F6D7B00F70036 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
