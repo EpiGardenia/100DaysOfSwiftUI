@@ -16,6 +16,7 @@
 		1A00301A259F6E4400F70036 /* ViewB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A003019259F6E4400F70036 /* ViewB.swift */; };
 		1A00301D259F6E7200F70036 /* ViewC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00301C259F6E7200F70036 /* ViewC.swift */; };
 		1A003020259F707000F70036 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00301F259F707000F70036 /* TabViews.swift */; };
+		1A35F9BC25A5E34800BE5C24 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 1A35F9BB25A5E34800BE5C24 /* CodeScanner */; };
 		1A65469525A1C96000CE2E67 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469425A1C96000CE2E67 /* ResultType.swift */; };
 		1A65469825A1C9A200CE2E67 /* ObjectWillChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469725A1C9A200CE2E67 /* ObjectWillChangeView.swift */; };
 		1A65469C25A1C9D000CE2E67 /* DelaydUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469B25A1C9D000CE2E67 /* DelaydUpdater.swift */; };
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A35F9BC25A5E34800BE5C24 /* CodeScanner in Frameworks */,
 				1A6546C325A32B8000CE2E67 /* SamplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +152,7 @@
 			name = Hot_Prospects;
 			packageProductDependencies = (
 				1A6546C225A32B8000CE2E67 /* SamplePackage */,
+				1A35F9BB25A5E34800BE5C24 /* CodeScanner */,
 			);
 			productName = Hot_Prospects;
 			productReference = 1A002FFE259F6BC700F70036 /* Hot_Prospects.app */;
@@ -180,6 +183,7 @@
 			mainGroup = 1A002FF5259F6BC700F70036;
 			packageReferences = (
 				1A6546C125A32B8000CE2E67 /* XCRemoteSwiftPackageReference "SamplePackage" */,
+				1A35F9BA25A5E34800BE5C24 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 1A002FFF259F6BC700F70036 /* Products */;
 			projectDirPath = "";
@@ -414,6 +418,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1A35F9BA25A5E34800BE5C24 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.7;
+			};
+		};
 		1A6546C125A32B8000CE2E67 /* XCRemoteSwiftPackageReference "SamplePackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/SamplePackage";
@@ -425,6 +437,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1A35F9BB25A5E34800BE5C24 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A35F9BA25A5E34800BE5C24 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
 		1A6546C225A32B8000CE2E67 /* SamplePackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A6546C125A32B8000CE2E67 /* XCRemoteSwiftPackageReference "SamplePackage" */;

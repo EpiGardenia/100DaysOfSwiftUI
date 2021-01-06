@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 class Prospect: Identifiable, Codable{
-    let id = UUID()
+    var id = UUID()
     var name = "Anonymous"
     var email = ""
     var isContacted = false
@@ -18,6 +19,11 @@ class Prospects: ObservableObject{
     @Published var people: [Prospect]
     init() {
         self.people = []
+    }
+    
+    func toggle(_ prospect: Prospect) {
+        objectWillChange.send()
+        prospect.isContacted.toggle()
     }
 }
 
@@ -49,6 +55,7 @@ struct ProspectView: View {
             return prospects.people.filter{ !$0.isContacted }
         }
     }
+    @State private var showingScanView = false
     
     var body: some View {
         NavigationView {
@@ -59,22 +66,43 @@ struct ProspectView: View {
                             .font(.headline)
                         Text(prospect.email)
                             .font(.body)
-                    }
+                    }.contextMenu(menuItems: {
+                        Button(prospect.isContacted ? "Mark as UnContacted" : "Mark as Contacted") {
+                            prospects.toggle(prospect)
+                        }
+                    })
                     
                 }
             }
                 .navigationBarTitle(title)
                 .navigationBarItems(trailing: Button(action: {
-                    let prospect = Prospect()
-                    prospect.name = "Paul Hudson"
-                    prospect.email = "paul@hackingwithswift.com"
-                    self.prospects.people.append(prospect)
+                    self.showingScanView = true
                 }) {
                     Image(systemName: "qrcode.viewfinder")
                     Text("Scan")
                 })
+        }.sheet(isPresented: $showingScanView, content: {
+                    CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan
+        )})
+        }
+    
+    
+    func handleScan(result: Result<String, CodeScannerView.ScanError>) {
+        self.showingScanView = false
+        switch result{
+        case .success(let code):
+            let details = code.components(separatedBy: "\n")
+            guard details.count == 2 else {return}
+            let person = Prospect()
+            person.name = details[0]
+            person.email = details[1]
+            
+            self.prospects.people.append(person)
+        case .failure(let error):
+            print("Scanning failed due to \(error.localizedDescription)")
         }
     }
+    
 }
 
 struct ProspectView_Previews: PreviewProvider {
