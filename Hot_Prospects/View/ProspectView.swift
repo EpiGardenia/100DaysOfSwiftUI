@@ -38,6 +38,7 @@ struct ProspectView: View {
     }
     @State private var showingScanView = false
     let defaults = UserDefaults.standard
+    @State private var allowNotification = false
     
     var body: some View {
         NavigationView {
@@ -51,6 +52,12 @@ struct ProspectView: View {
                     }.contextMenu(menuItems: {
                         Button(prospect.isContacted ? "Mark as UnContacted" : "Mark as Contacted") {
                             prospects.toggle(prospect)
+                        }
+                        
+                        if !prospect.isContacted {
+                            Button("Remind Me") {
+                                self.setReminder(prospect)
+                            }
                         }
                     })
                     
@@ -68,6 +75,25 @@ struct ProspectView: View {
         )})
         }
     
+    func setReminder(_ prospect: Prospect) {
+        // Check if allow notification
+        if allowNotification == false {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { success, error in
+                if success {
+                    allowNotification = true
+                } else if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }})
+        }
+       
+        // Set reminder
+        let content = UNMutableNotificationContent()
+        content.title = "Contact \(prospect.name)"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+    }
     
     func handleScan(result: Result<String, CodeScannerView.ScanError>) {
 
