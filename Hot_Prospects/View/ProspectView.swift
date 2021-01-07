@@ -8,25 +8,6 @@
 import SwiftUI
 import CodeScanner
 
-class Prospect: Identifiable, Codable{
-    var id = UUID()
-    var name = "Anonymous"
-    var email = ""
-    fileprivate(set) var isContacted = false
-}
-
-class Prospects: ObservableObject{
-    @Published var people: [Prospect]
-    init() {
-        self.people = []
-    }
-    
-    func toggle(_ prospect: Prospect) {
-        objectWillChange.send()
-        prospect.isContacted.toggle()
-    }
-}
-
 enum FilterType {
     case none, contacted, uncontacted
 }
@@ -56,6 +37,7 @@ struct ProspectView: View {
         }
     }
     @State private var showingScanView = false
+    let defaults = UserDefaults.standard
     
     var body: some View {
         NavigationView {
@@ -88,6 +70,7 @@ struct ProspectView: View {
     
     
     func handleScan(result: Result<String, CodeScannerView.ScanError>) {
+
         self.showingScanView = false
         switch result{
         case .success(let code):
@@ -96,8 +79,7 @@ struct ProspectView: View {
             let person = Prospect()
             person.name = details[0]
             person.email = details[1]
-            
-            self.prospects.people.append(person)
+            self.prospects.add(person)
         case .failure(let error):
             print("Scanning failed due to \(error.localizedDescription)")
         }
