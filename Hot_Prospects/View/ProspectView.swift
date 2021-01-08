@@ -27,24 +27,39 @@ struct ProspectView: View {
     }
     
     var filterProspects: [Prospect] {
+        var list: [Prospect]
         switch filter {
         case .none:
-            return prospects.people
+            list = prospects.people
         case .contacted:
-            return prospects.people.filter{ $0.isContacted }
+            list = prospects.people.filter{ $0.isContacted }
         case .uncontacted:
-            return prospects.people.filter{ !$0.isContacted }
+            list = prospects.people.filter{ !$0.isContacted }
         }
+        
+        if usingSort {
+            list = list.sorted()
+        }
+        return list
     }
+    
+    var randomSimulationData: String {
+        return ["Apple \napple@fruit.farm",
+                "Banana \nbanana@fruit.farm",
+                "Mango \nmango@fruit.farm",
+                "Zebra \nzebra@anmimal.safari"].randomElement()!
+    }
+    
     
     var showingIcon: Bool {
         return filter == .none
     }
     
-    
-    @State private var showingScanView = false
     let defaults = UserDefaults.standard
+    @State private var showingScanView = false
     @State private var allowNotification = false
+    @State private var showingActionSheet = false
+    @State private var usingSort = false
     
     var body: some View {
         NavigationView {
@@ -75,14 +90,22 @@ struct ProspectView: View {
                 }
             }
             .navigationBarTitle(title)
-            .navigationBarItems(trailing: Button(action: {
-                self.showingScanView = true
-            }) {
-                Image(systemName: "qrcode.viewfinder")
-                Text("Scan")
-            })
+            .navigationBarItems(
+                leading: Button(action: { showingActionSheet = true} ,
+                                label: {Text("Sorted By")})
+                    .actionSheet(isPresented: self.$showingActionSheet,
+                                 content: { ActionSheet(title: Text("Sorted By"),
+                                                        message: Text("choose a way of sorting"),
+                                                        buttons: [.default(Text("By Name")) { usingSort = true },
+                                                                  .default(Text("By Most Recent")) { usingSort = false },])})
+                ,
+                trailing: Button(action: { self.showingScanView = true
+                }) {
+                    Image(systemName: "qrcode.viewfinder")
+                    Text("Scan")
+                })
         }.sheet(isPresented: $showingScanView, content: {
-                    CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan
+                    CodeScannerView(codeTypes: [.qr], simulatedData: randomSimulationData, completion: self.handleScan
                     )})
     }
     
