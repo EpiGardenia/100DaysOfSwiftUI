@@ -36,6 +36,12 @@ struct ProspectView: View {
             return prospects.people.filter{ !$0.isContacted }
         }
     }
+    
+    var showingIcon: Bool {
+        return filter == .none
+    }
+    
+    
     @State private var showingScanView = false
     let defaults = UserDefaults.standard
     @State private var allowNotification = false
@@ -44,49 +50,55 @@ struct ProspectView: View {
         NavigationView {
             List{
                 ForEach(filterProspects) { prospect in
-                    VStack(alignment: .leading){
-                        Text(verbatim: prospect.name)
-                            .font(.headline)
-                        Text(prospect.email)
-                            .font(.body)
+                    HStack{
+                        VStack(alignment: .leading){
+                            Text(verbatim: prospect.name)
+                                .font(.headline)
+                            Text(prospect.email)
+                                .font(.body)
+                        }
+                        Spacer()
+                        // Challenge1
+                        if showingIcon {
+                            prospect.isContacted ? Image(systemName: "person.crop.circle.badge.checkmark"): Image(systemName:"person.crop.circle")
+                        }
                     }.contextMenu(menuItems: {
                         Button(prospect.isContacted ? "Mark as UnContacted" : "Mark as Contacted") {
                             prospects.toggle(prospect)
                         }
-                        
                         if !prospect.isContacted {
                             Button("Remind Me") {
                                 self.setReminder(prospect)
                             }
                         }
                     })
-                    
                 }
             }
-                .navigationBarTitle(title)
-                .navigationBarItems(trailing: Button(action: {
-                    self.showingScanView = true
-                }) {
-                    Image(systemName: "qrcode.viewfinder")
-                    Text("Scan")
-                })
+            .navigationBarTitle(title)
+            .navigationBarItems(trailing: Button(action: {
+                self.showingScanView = true
+            }) {
+                Image(systemName: "qrcode.viewfinder")
+                Text("Scan")
+            })
         }.sheet(isPresented: $showingScanView, content: {
                     CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan
-        )})
-        }
+                    )})
+    }
     
     func setReminder(_ prospect: Prospect) {
         // Check if allow notification
         if allowNotification == false {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { success, error in
-                if success {
-                    allowNotification = true
-                } else if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }})
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: [.badge, .sound, .alert], completionHandler: { success, error in
+                    if success {
+                        allowNotification = true
+                    } else if error != nil {
+                        print(error!.localizedDescription)
+                        return
+                    }})
         }
-       
+        
         // Set reminder
         let content = UNMutableNotificationContent()
         content.title = "Contact \(prospect.name)"
@@ -96,7 +108,6 @@ struct ProspectView: View {
     }
     
     func handleScan(result: Result<String, CodeScannerView.ScanError>) {
-
         self.showingScanView = false
         switch result{
         case .success(let code):
