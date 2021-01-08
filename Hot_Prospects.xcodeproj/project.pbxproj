@@ -19,6 +19,11 @@
 		1A35F9BC25A5E34800BE5C24 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 1A35F9BB25A5E34800BE5C24 /* CodeScanner */; };
 		1A35F9BF25A7433300BE5C24 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9BE25A7433300BE5C24 /* Prospect.swift */; };
 		1A35F9C225A8610000BE5C24 /* FileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9C125A8610000BE5C24 /* FileAccess.swift */; };
+		1A35F9CB25A880EA00BE5C24 /* AddContacts.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1A35F9C625A880EA00BE5C24 /* AddContacts.mov */; };
+		1A35F9CC25A880EA00BE5C24 /* notification.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1A35F9C725A880EA00BE5C24 /* notification.mov */; };
+		1A35F9CD25A880EA00BE5C24 /* QRCode.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1A35F9C825A880EA00BE5C24 /* QRCode.mov */; };
+		1A35F9CE25A880EA00BE5C24 /* combined.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1A35F9C925A880EA00BE5C24 /* combined.mov */; };
+		1A35F9CF25A880EA00BE5C24 /* sortByName.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1A35F9CA25A880EA00BE5C24 /* sortByName.mov */; };
 		1A65469525A1C96000CE2E67 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469425A1C96000CE2E67 /* ResultType.swift */; };
 		1A65469825A1C9A200CE2E67 /* ObjectWillChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469725A1C9A200CE2E67 /* ObjectWillChangeView.swift */; };
 		1A65469C25A1C9D000CE2E67 /* DelaydUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A65469B25A1C9D000CE2E67 /* DelaydUpdater.swift */; };
@@ -46,6 +51,11 @@
 		1A00301F259F707000F70036 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		1A35F9BE25A7433300BE5C24 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 		1A35F9C125A8610000BE5C24 /* FileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAccess.swift; sourceTree = "<group>"; };
+		1A35F9C625A880EA00BE5C24 /* AddContacts.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AddContacts.mov; sourceTree = "<group>"; };
+		1A35F9C725A880EA00BE5C24 /* notification.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = notification.mov; sourceTree = "<group>"; };
+		1A35F9C825A880EA00BE5C24 /* QRCode.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = QRCode.mov; sourceTree = "<group>"; };
+		1A35F9C925A880EA00BE5C24 /* combined.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = combined.mov; sourceTree = "<group>"; };
+		1A35F9CA25A880EA00BE5C24 /* sortByName.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sortByName.mov; sourceTree = "<group>"; };
 		1A65469425A1C96000CE2E67 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
 		1A65469725A1C9A200CE2E67 /* ObjectWillChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectWillChangeView.swift; sourceTree = "<group>"; };
 		1A65469B25A1C9D000CE2E67 /* DelaydUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelaydUpdater.swift; sourceTree = "<group>"; };
@@ -74,6 +84,7 @@
 		1A002FF5259F6BC700F70036 = {
 			isa = PBXGroup;
 			children = (
+				1A35F9C525A880EA00BE5C24 /* Demo */,
 				1A003000259F6BC700F70036 /* Hot_Prospects */,
 				1A002FFF259F6BC700F70036 /* Products */,
 			);
@@ -128,6 +139,18 @@
 				1A6546D125A4C5DB00CE2E67 /* MeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1A35F9C525A880EA00BE5C24 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				1A35F9C625A880EA00BE5C24 /* AddContacts.mov */,
+				1A35F9C725A880EA00BE5C24 /* notification.mov */,
+				1A35F9C825A880EA00BE5C24 /* QRCode.mov */,
+				1A35F9C925A880EA00BE5C24 /* combined.mov */,
+				1A35F9CA25A880EA00BE5C24 /* sortByName.mov */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		1A65469A25A1C9BB00CE2E67 /* Model */ = {
@@ -205,8 +228,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A35F9CF25A880EA00BE5C24 /* sortByName.mov in Resources */,
 				1A003009259F6BCA00F70036 /* Preview Assets.xcassets in Resources */,
+				1A35F9CD25A880EA00BE5C24 /* QRCode.mov in Resources */,
 				1A003006259F6BCA00F70036 /* Assets.xcassets in Resources */,
+				1A35F9CB25A880EA00BE5C24 /* AddContacts.mov in Resources */,
+				1A35F9CC25A880EA00BE5C24 /* notification.mov in Resources */,
+				1A35F9CE25A880EA00BE5C24 /* combined.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
