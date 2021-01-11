@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A35F9DE25A9D26200BE5C24 /* FlashzillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9DD25A9D26200BE5C24 /* FlashzillaApp.swift */; };
+		1A35F9E025A9D26200BE5C24 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9DF25A9D26200BE5C24 /* ContentView.swift */; };
+		1A35F9E225A9D26600BE5C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35F9E125A9D26600BE5C24 /* Assets.xcassets */; };
+		1A35F9E525A9D26600BE5C24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A35F9E425A9D26600BE5C24 /* Preview Assets.xcassets */; };
+		1A35F9EF25A9D4EE00BE5C24 /* Day86_GesturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9EE25A9D4EE00BE5C24 /* Day86_GesturesView.swift */; };
+		1A35F9F325AA0A4C00BE5C24 /* Day86_HapticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9F225AA0A4C00BE5C24 /* Day86_HapticsView.swift */; };
+		1A35F9F725AA171600BE5C24 /* Day86_allowsHitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9F625AA171600BE5C24 /* Day86_allowsHitTesting.swift */; };
+		1A35F9FA25AAD80600BE5C24 /* Day87_triggerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9F925AAD80600BE5C24 /* Day87_triggerTimerView.swift */; };
+		1A35F9FD25AADCD100BE5C24 /* Day87_userNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9FC25AADCD100BE5C24 /* Day87_userNotification.swift */; };
+		1A35FA0025AAE09B00BE5C24 /* Day87_special_accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35F9FF25AAE09B00BE5C24 /* Day87_special_accessibility.swift */; };
+		1A35FA0325AC2D3E00BE5C24 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35FA0225AC2D3E00BE5C24 /* CardView.swift */; };
+		1A35FA0725AC2D5D00BE5C24 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35FA0625AC2D5D00BE5C24 /* Card.swift */; };
+		1A35FA0B25AC33E300BE5C24 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35FA0A25AC33E300BE5C24 /* CardsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A35F9DA25A9D26200BE5C24 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A35F9DD25A9D26200BE5C24 /* FlashzillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaApp.swift; sourceTree = "<group>"; };
+		1A35F9DF25A9D26200BE5C24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1A35F9E125A9D26600BE5C24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A35F9E425A9D26600BE5C24 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A35F9E625A9D26600BE5C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A35F9EE25A9D4EE00BE5C24 /* Day86_GesturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day86_GesturesView.swift; sourceTree = "<group>"; };
+		1A35F9F225AA0A4C00BE5C24 /* Day86_HapticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day86_HapticsView.swift; sourceTree = "<group>"; };
+		1A35F9F625AA171600BE5C24 /* Day86_allowsHitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day86_allowsHitTesting.swift; sourceTree = "<group>"; };
+		1A35F9F925AAD80600BE5C24 /* Day87_triggerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day87_triggerTimerView.swift; sourceTree = "<group>"; };
+		1A35F9FC25AADCD100BE5C24 /* Day87_userNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day87_userNotification.swift; sourceTree = "<group>"; };
+		1A35F9FF25AAE09B00BE5C24 /* Day87_special_accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day87_special_accessibility.swift; sourceTree = "<group>"; };
+		1A35FA0225AC2D3E00BE5C24 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1A35FA0625AC2D5D00BE5C24 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		1A35FA0A25AC33E300BE5C24 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A35F9D725A9D26200BE5C24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A35F9D125A9D26200BE5C24 = {
+			isa = PBXGroup;
+			children = (
+				1A35F9DC25A9D26200BE5C24 /* Flashzilla */,
+				1A35F9DB25A9D26200BE5C24 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A35F9DB25A9D26200BE5C24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A35F9DA25A9D26200BE5C24 /* Flashzilla.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A35F9DC25A9D26200BE5C24 /* Flashzilla */ = {
+			isa = PBXGroup;
+			children = (
+				1A35FA0525AC2D5200BE5C24 /* Model */,
+				1A35F9ED25A9D4CD00BE5C24 /* View */,
+				1A35F9DD25A9D26200BE5C24 /* FlashzillaApp.swift */,
+				1A35F9DF25A9D26200BE5C24 /* ContentView.swift */,
+				1A35F9E125A9D26600BE5C24 /* Assets.xcassets */,
+				1A35F9E625A9D26600BE5C24 /* Info.plist */,
+				1A35F9E325A9D26600BE5C24 /* Preview Content */,
+			);
+			path = Flashzilla;
+			sourceTree = "<group>";
+		};
+		1A35F9E325A9D26600BE5C24 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1A35F9E425A9D26600BE5C24 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A35F9ED25A9D4CD00BE5C24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A35F9EE25A9D4EE00BE5C24 /* Day86_GesturesView.swift */,
+				1A35F9F225AA0A4C00BE5C24 /* Day86_HapticsView.swift */,
+				1A35F9F625AA171600BE5C24 /* Day86_allowsHitTesting.swift */,
+				1A35F9F925AAD80600BE5C24 /* Day87_triggerTimerView.swift */,
+				1A35F9FC25AADCD100BE5C24 /* Day87_userNotification.swift */,
+				1A35F9FF25AAE09B00BE5C24 /* Day87_special_accessibility.swift */,
+				1A35FA0225AC2D3E00BE5C24 /* CardView.swift */,
+				1A35FA0A25AC33E300BE5C24 /* CardsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1A35FA0525AC2D5200BE5C24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A35FA0625AC2D5D00BE5C24 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A35F9D925A9D26200BE5C24 /* Flashzilla */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A35F9E925A9D26600BE5C24 /* Build configuration list for PBXNativeTarget "Flashzilla" */;
+			buildPhases = (
+				1A35F9D625A9D26200BE5C24 /* Sources */,
+				1A35F9D725A9D26200BE5C24 /* Frameworks */,
+				1A35F9D825A9D26200BE5C24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flashzilla;
+			productName = Flashzilla;
+			productReference = 1A35F9DA25A9D26200BE5C24 /* Flashzilla.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A35F9D225A9D26200BE5C24 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					1A35F9D925A9D26200BE5C24 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 1A35F9D525A9D26200BE5C24 /* Build configuration list for PBXProject "Flashzilla" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A35F9D125A9D26200BE5C24;
+			productRefGroup = 1A35F9DB25A9D26200BE5C24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A35F9D925A9D26200BE5C24 /* Flashzilla */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A35F9D825A9D26200BE5C24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A35F9E525A9D26600BE5C24 /* Preview Assets.xcassets in Resources */,
+				1A35F9E225A9D26600BE5C24 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A35F9D625A9D26200BE5C24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A35FA0B25AC33E300BE5C24 /* CardsView.swift in Sources */,
+				1A35FA0025AAE09B00BE5C24 /* Day87_special_accessibility.swift in Sources */,
+				1A35FA0325AC2D3E00BE5C24 /* CardView.swift in Sources */,
+				1A35F9E025A9D26200BE5C24 /* ContentView.swift in Sources */,
+				1A35F9F725AA171600BE5C24 /* Day86_allowsHitTesting.swift in Sources */,
+				1A35F9F325AA0A4C00BE5C24 /* Day86_HapticsView.swift in Sources */,
+				1A35F9EF25A9D4EE00BE5C24 /* Day86_GesturesView.swift in Sources */,
+				1A35F9DE25A9D26200BE5C24 /* FlashzillaApp.swift in Sources */,
+				1A35FA0725AC2D5D00BE5C24 /* Card.swift in Sources */,
+				1A35F9FD25AADCD100BE5C24 /* Day87_userNotification.swift in Sources */,
+				1A35F9FA25AAD80600BE5C24 /* Day87_triggerTimerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1A35F9E725A9D26600BE5C24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A35F9E825A9D26600BE5C24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A35F9EA25A9D26600BE5C24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Flashzilla/Preview Content\"";
+				DEVELOPMENT_TEAM = K8YVKLM6GZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Flashzilla/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Freedom.Flashzilla;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A35F9EB25A9D26600BE5C24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Flashzilla/Preview Content\"";
+				DEVELOPMENT_TEAM = K8YVKLM6GZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Flashzilla/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Freedom.Flashzilla;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A35F9D525A9D26200BE5C24 /* Build configuration list for PBXProject "Flashzilla" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A35F9E725A9D26600BE5C24 /* Debug */,
+				1A35F9E825A9D26600BE5C24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A35F9E925A9D26600BE5C24 /* Build configuration list for PBXNativeTarget "Flashzilla" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A35F9EA25A9D26600BE5C24 /* Debug */,
+				1A35F9EB25A9D26600BE5C24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A35F9D225A9D26200BE5C24 /* Project object */;
+}
