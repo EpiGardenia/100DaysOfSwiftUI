@@ -1,0 +1,3 @@
+[submodule "Day19_ChallengeDay"]
+	path = Day19_ChallengeDay
+	url = ./Day19_ChallengeDay/
