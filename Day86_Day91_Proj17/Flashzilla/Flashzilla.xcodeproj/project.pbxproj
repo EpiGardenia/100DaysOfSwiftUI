@@ -20,6 +20,7 @@
 		1A35FA0325AC2D3E00BE5C24 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35FA0225AC2D3E00BE5C24 /* CardView.swift */; };
 		1A35FA0725AC2D5D00BE5C24 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35FA0625AC2D5D00BE5C24 /* Card.swift */; };
 		1A35FA0B25AC33E300BE5C24 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A35FA0A25AC33E300BE5C24 /* CardsView.swift */; };
+		1AA5969F25AEEDF000A36CA6 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5969E25AEEDF000A36CA6 /* AddCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1A35FA0225AC2D3E00BE5C24 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1A35FA0625AC2D5D00BE5C24 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1A35FA0A25AC33E300BE5C24 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		1AA5969E25AEEDF000A36CA6 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				1A35F9FF25AAE09B00BE5C24 /* Day87_special_accessibility.swift */,
 				1A35FA0225AC2D3E00BE5C24 /* CardView.swift */,
 				1A35FA0A25AC33E300BE5C24 /* CardsView.swift */,
+				1AA5969E25AEEDF000A36CA6 /* AddCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				1A35F9E025A9D26200BE5C24 /* ContentView.swift in Sources */,
 				1A35F9F725AA171600BE5C24 /* Day86_allowsHitTesting.swift in Sources */,
 				1A35F9F325AA0A4C00BE5C24 /* Day86_HapticsView.swift in Sources */,
+				1AA5969F25AEEDF000A36CA6 /* AddCardView.swift in Sources */,
 				1A35F9EF25A9D4EE00BE5C24 /* Day86_GesturesView.swift in Sources */,
 				1A35F9DE25A9D26200BE5C24 /* FlashzillaApp.swift in Sources */,
 				1A35FA0725AC2D5D00BE5C24 /* Card.swift in Sources */,

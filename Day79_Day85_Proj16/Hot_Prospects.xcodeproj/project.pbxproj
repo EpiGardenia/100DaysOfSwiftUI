@@ -84,8 +84,8 @@
 		1A002FF5259F6BC700F70036 = {
 			isa = PBXGroup;
 			children = (
-				1A35F9C525A880EA00BE5C24 /* Demo */,
 				1A003000259F6BC700F70036 /* Hot_Prospects */,
+				1A35F9C525A880EA00BE5C24 /* Demo */,
 				1A002FFF259F6BC700F70036 /* Products */,
 			);
 			sourceTree = "<group>";

@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct Card {
-    var question: String
-    var answer: String
+struct Card: Codable {
+   // var id = UUID()
+    let question: String
+    let answer: String
     static var example: Card {
         Card(question: "Where does Totoro live?", answer: "Japan")
     }
