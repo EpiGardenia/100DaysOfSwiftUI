@@ -33,7 +33,7 @@ struct ContentView: View {
                                 let red = ratio*ratio
                                 let blue = ratio
                                 let green = (1-ratio)
-                                let offset = index > 2 ? CGFloat(10 * index) : 0
+                                let offset = index > 6 ? CGFloat(7 * (index-5)) : 0
                                 HStack{
                                     Spacer()
                                     Image(systemName: "\(usedWords[index].count).circle")
@@ -86,7 +86,7 @@ struct ContentView: View {
                 // 3. split that string into an array of string with each element being one word
                 let allWords = startWords.components(separatedBy: "\n")
                 // 4. pick one random word from there to assigned to root word or use a sensible default if array is empty
-                rootWord = allWords.randomElement() ?? "Default"
+                rootWord = "wearable"//allWords.randomElement() ?? "Default"
                 return
             }
         }
