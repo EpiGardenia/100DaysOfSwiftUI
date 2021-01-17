@@ -16,31 +16,61 @@ struct ContentView: View {
     @State private var errorMsg = ""
     @State private var showingAlert = false
     @State private var score = 0
-    
-    
-    
+
     var body: some View {
         NavigationView {
-            VStack {
-                TextField("Enter your word", text: $newWord, onCommit: addNewWord)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .padding()
-                    
-                List(usedWords, id: \.self) {
-                    Image(systemName: "\($0.count).circle")
-                    Text($0)
-                }
-                Text("Score: \(score)")
-            } // End of VStack
-            .navigationBarTitle(rootWord)
-            .onAppear(perform: startGame)
+            GeometryReader{ wordsView in
+                VStack {
+                    TextField("Enter your word", text: $newWord, onCommit: addNewWord)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .padding()
+                    ScrollView(.vertical) {
+                        ForEach(0..<usedWords.count, id:\.self) { index in
+                            GeometryReader { rowPos in
+                                let rowFrame = rowPos.frame(in: .global)
+                                let ratio = Double((rowFrame.midY/wordsView.size.height))
+                                let red = ratio*ratio
+                                let blue = ratio
+                                let green = (1-ratio)
+                                let offset = index > 2 ? CGFloat(10 * index) : 0
+                                HStack{
+                                    Spacer()
+                                    Image(systemName: "\(usedWords[index].count).circle")
+                                        .padding()
+                                        .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                                        .foregroundColor(Color(red: red , green: green, blue: blue))
+                                        .position(x: rowPos.frame(in: .local).minX+offset)
+                                    Text(usedWords[index])
+                                        .font(.title)
+                                        .position(x: rowPos.frame(in: .local).minX+offset)
+                                }
+                                
+                                // If put here, it ailgn the last char in this position
+                                // .position(x: rowPos.frame(in: .local).minX+offset)
+                       
+                                // If put here, it fix in leading align, can't see offset effect
+//                                .alignmentGuide(.leading, computeValue: { dimension in
+//                                    rowPos.frame(in: .global).midX + offset
+//                                })
+                      
+                            } // end of geometry
+                            .padding()
+                        } // end of foreach
+                    } // end of scrollview
+                    Text("Score: \(score)")
+                        .background(Color.blue)
+                } // End of VStack
+                .navigationBarTitle(rootWord)
+                .onAppear(perform: startGame)
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text(errorTitle), message: Text(errorMsg), dismissButton: .default(Text("OK")))
-                        }
-            .navigationBarItems(leading: Button(action: startGame){
-                Text("New Game")
-            })
+                }
+                .navigationBarItems(leading: Button(action: startGame){
+                    Text("New Game")
+                })
+                
+            }
         }
     }
     
@@ -63,7 +93,7 @@ struct ContentView: View {
         
         fatalError("Could not load start.txt from bundle.")
     }
-
+    
     
     func addNewWord() {
         // 1. Remove whitespace from both ends
@@ -115,6 +145,7 @@ struct ContentView: View {
     
     // if new word continas root
     func isPossible(word:String) -> Bool {
+        print(rootWord)
         var tempWord = rootWord.lowercased()
         for letter in word {
             if let index = tempWord.firstIndex(of: letter) {
@@ -131,10 +162,8 @@ struct ContentView: View {
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
-        return (misspelledRange.location == NSNotFound) && (word.count > 3)
+        return (misspelledRange.location == NSNotFound) // && (word.count > 3)
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
