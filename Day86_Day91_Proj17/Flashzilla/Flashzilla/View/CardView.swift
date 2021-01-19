@@ -13,7 +13,14 @@ struct CardView: View {
     @Environment(\.accessibilityEnabled) var
         accessibilityEnabled
     let card: Card
-    var removal: (() -> Void)? = nil
+    var removal: (() -> Void)? = nil {
+        didSet{
+            print("DidSet removal")
+        }
+        willSet{
+            print("willSet removal")
+        }
+    }
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
     @State private var cardColor = Color.white
@@ -59,16 +66,26 @@ struct CardView: View {
                 .onChanged{ gesture in
                     self.offset = gesture.translation
                     self.feedback.prepare()
+                    if self.removal == nil {
+                        print("self.removal = nil onChanged")
+                    }
                 }
                 .onEnded{ _ in
-                    
                     if abs(self.offset.width) > 100 {
                         if self.offset.width > 0 {
                             self.feedback.notificationOccurred(.success)
                         } else {
                             self.feedback.notificationOccurred(.error)
+                            
+                        }
+                        print("self.removal:\(String(describing: self.removal))")
+                        if self.removal == nil {
+                            print("self.removal = nil before")
                         }
                         self.removal?()
+                        if self.removal == nil {
+                            print("self.removal = nil after.")
+                        }
                     } else {
                         //return back to center
                         self.offset = .zero
@@ -79,6 +96,11 @@ struct CardView: View {
             isShowingAnswer.toggle()
         }
         .animation(.spring())
+        .onAppear{
+            if self.removal == nil {
+                print("self.removal = nil onAppear Card")
+            }
+        }
     }
 }
 

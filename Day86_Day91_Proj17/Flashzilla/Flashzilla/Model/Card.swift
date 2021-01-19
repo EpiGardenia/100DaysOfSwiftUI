@@ -8,9 +8,10 @@
 import Foundation
 
 struct Card: Codable {
-   // var id = UUID()
     let question: String
     let answer: String
+    // check if the card has been guessed wrong in the same round
+    var hasFailed = false
     static var example: Card {
         Card(question: "Where does Totoro live?", answer: "Japan")
     }

@@ -13,7 +13,10 @@ struct CardsView: View {
     @State private var cards = [Card]()
     @State private var time = 100
     @State private var isActive = true
+    @State private var isTimeOut = false
     @State private var showingEditScreen = false
+    @State private var showingSetting = false
+    @State private var hasSecondChance = false
     var timer = Timer.publish(every: 1, tolerance: 0.2, on: .main, in: .common).autoconnect()
     var body: some View {
         ZStack{
@@ -35,16 +38,15 @@ struct CardsView: View {
                     )
                 ZStack{
                     ForEach(0..<cards.count, id:\.self) { index in
-                        CardView(card: cards[index]) {
+                        CardView(card: cards[index], removal: {
                             withAnimation{
                                 self.removeCard(at: index)
                             }
-                        }
+                        })
                         .stacked(at: index, in: self.cards.count)
                         .allowsHitTesting(index == self.cards.count - 1)
                         .accessibility(hidden: index < self.cards.count - 1)
-                    }
-                    
+                    }  
                 }
                 .allowsHitTesting(self.time > 0)
                 if cards.isEmpty {
@@ -93,14 +95,14 @@ struct CardsView: View {
                 } else {
                     Spacer()
                 }
-                
-                
-                
             }
             .onReceive(timer, perform: { time in
                 guard self.isActive else { return }
                 if self.time > 0 {
                     self.time -= 1
+                    if self.time == 0 {
+                        self.isTimeOut = true
+                    }
                 }
             })
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: { _ in
@@ -115,6 +117,23 @@ struct CardsView: View {
             
             VStack{
                 HStack{
+                    Image(systemName: "gear")
+                        .padding()
+                        .background(Color.black.opacity(0.7))
+                        .clipShape(Circle())
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .padding()
+                        .onTapGesture {
+                            showingSetting = true
+                        }
+                        .actionSheet(isPresented: $showingSetting, content: {
+                            ActionSheet(title: Text("Give a wrong answer second try?"),
+                                        buttons: [
+                                            .default(Text("Yes")){ self.hasSecondChance = true},
+                                            .default(Text("No")){ self.hasSecondChance = false}
+                                                     ])
+                                        })
                     Spacer()
                     Button(action: { showingEditScreen = true}, label: {
                         Image(systemName: "plus.circle")
@@ -131,8 +150,12 @@ struct CardsView: View {
                 Spacer()
             }
             
-        }.sheet(isPresented: $showingEditScreen, content: {AddCardView()})
+        }
+        .sheet(isPresented: $showingEditScreen, content: {AddCardView()})
         .onAppear(perform: resetCards)
+        .alert(isPresented: $isTimeOut, content: {
+            Alert(title: Text("Time Out"))
+        })
         // .navigationViewStyle(StackNavigationViewStyle())
     }
     
@@ -144,8 +167,13 @@ struct CardsView: View {
             }
         }
     }
+    
     func removeCard(at index: Int) {
         guard index >= 0 else {return}
+//        var card = cards[index]
+//        if !card.hasFailed {
+//            cards.append(card)
+//        }
         cards.remove(at: index)
         if cards.isEmpty {
             isActive = false
@@ -155,7 +183,8 @@ struct CardsView: View {
     func resetCards() {
         loadData()
         isActive = true
-        time = 10
+        time = 5 * cards.count
+        isTimeOut = false
     }
 }
 
