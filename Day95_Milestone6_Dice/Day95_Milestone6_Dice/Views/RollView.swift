@@ -7,19 +7,13 @@
 
 import SwiftUI
 
-enum maxNumE: Int {
-    case fourSided = 4
-    case sixSided = 6
-    case eightSided = 8
-    case tenSided = 10
-    case twelveSided = 12
-    case twentySided = 20
-    case oneHundredSided = 100
-}
-
 struct RollView: View {
+    
+    @Environment(\.managedObjectContext) var moc
+
     @State private var rollAngle: Double = 0.0
     @State private var maxNum: maxNumE = .sixSided
+    @State private var values: [Int] = []
     @State private var value = 0
     let timeOfDice = 40
     @State private var timeRemaining = 40 {
@@ -27,6 +21,7 @@ struct RollView: View {
             if timeRemaining <= 0 {
                 stopDice = true
                 rollAngle = 0
+                addToLog()
             }
         }
     }
@@ -41,8 +36,9 @@ struct RollView: View {
     
     var body: some View {
         VStack{
-            Text("\(value)")
+            Text("\(self.value)")
                 .font(.largeTitle)
+                .foregroundColor(.orange)
             Image("dice")
                 .resizable()
                 .foregroundColor(.blue)
@@ -55,7 +51,7 @@ struct RollView: View {
             
             Button("Choose size of dice") {
                 showingDiceChoices = true
-            }
+            }.foregroundColor(.black)
             
             Button("Roll") {
                 stopDice = false
@@ -63,6 +59,7 @@ struct RollView: View {
             }.padding()
             .font(.largeTitle)
             .background(Color.orange)
+            .foregroundColor(.black)
             .clipShape(Capsule())
         }.actionSheet(isPresented: $showingDiceChoices, content: {
             ActionSheet(title: Text("Size of Dice"), message: Text("Select the size of dice"), buttons: [
@@ -72,6 +69,7 @@ struct RollView: View {
                 .default(Text("10")) { maxNum = .tenSided},
                 .default(Text("12")) { maxNum = .twelveSided},
                 .default(Text("20")) { maxNum = .twentySided},
+                .default(Text("100")) { maxNum = .oneHundredSided},
                 .cancel()
             ])
             
@@ -86,7 +84,21 @@ struct RollView: View {
                 self.timeRemaining -= 1
             }
         }
+        .onAppear(){
+            if let data = UserDefaults.standard.array(forKey: "DiceValue") as? [Int] {
+                self.values = data
+            }
+        }
     }
+
+    func addToLog() {
+        values.append(self.value)
+        print("Add \(self.value) to log")
+        UserDefaults.standard.set(values, forKey: "DiceValue")
+        print("Values: \(values)")
+     
+    }
+
 }
 
 struct RollView_Previews: PreviewProvider {

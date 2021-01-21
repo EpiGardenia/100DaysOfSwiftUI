@@ -7,31 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AA596ED25B742A900A36CA6 /* Day95_Milestone6_DiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA596EC25B742A900A36CA6 /* Day95_Milestone6_DiceApp.swift */; };
-		1AA596EF25B742A900A36CA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA596EE25B742A900A36CA6 /* ContentView.swift */; };
-		1AA596F125B742AC00A36CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA596F025B742AC00A36CA6 /* Assets.xcassets */; };
-		1AA596F425B742AC00A36CA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA596F325B742AC00A36CA6 /* Preview Assets.xcassets */; };
-		1AA596FE25B742E100A36CA6 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA596FD25B742E100A36CA6 /* HomepageView.swift */; };
-		1AA5970325B7473900A36CA6 /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5970225B7473900A36CA6 /* RollView.swift */; };
-		1AA5970625B7474400A36CA6 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5970525B7474400A36CA6 /* LogView.swift */; };
-		1AA5970A25B782BD00A36CA6 /* DataHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5970925B782BD00A36CA6 /* DataHandling.swift */; };
+		1AA5972925B7918E00A36CA6 /* Day95_Milestone6App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5972825B7918E00A36CA6 /* Day95_Milestone6App.swift */; };
+		1AA5972B25B7918E00A36CA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5972A25B7918E00A36CA6 /* ContentView.swift */; };
+		1AA5972D25B7918F00A36CA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA5972C25B7918F00A36CA6 /* Assets.xcassets */; };
+		1AA5973025B7918F00A36CA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA5972F25B7918F00A36CA6 /* Preview Assets.xcassets */; };
+		1AA5973225B7918F00A36CA6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5973125B7918F00A36CA6 /* Persistence.swift */; };
+		1AA5973525B7918F00A36CA6 /* Day95_Milestone6.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5973325B7918F00A36CA6 /* Day95_Milestone6.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1AA596E925B742A900A36CA6 /* Day95_Milestone6_Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day95_Milestone6_Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AA596EC25B742A900A36CA6 /* Day95_Milestone6_DiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day95_Milestone6_DiceApp.swift; sourceTree = "<group>"; };
-		1AA596EE25B742A900A36CA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		1AA596F025B742AC00A36CA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1AA596F325B742AC00A36CA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1AA596F525B742AC00A36CA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AA596FD25B742E100A36CA6 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
-		1AA5970225B7473900A36CA6 /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
-		1AA5970525B7474400A36CA6 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
-		1AA5970925B782BD00A36CA6 /* DataHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandling.swift; sourceTree = "<group>"; };
+		1AA5972525B7918E00A36CA6 /* Day95_Milestone6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day95_Milestone6.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AA5972825B7918E00A36CA6 /* Day95_Milestone6App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day95_Milestone6App.swift; sourceTree = "<group>"; };
+		1AA5972A25B7918E00A36CA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1AA5972C25B7918F00A36CA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1AA5972F25B7918F00A36CA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1AA5973125B7918F00A36CA6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1AA5973425B7918F00A36CA6 /* Day95_Milestone6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Day95_Milestone6.xcdatamodel; sourceTree = "<group>"; };
+		1AA5973625B7918F00A36CA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1AA596E625B742A900A36CA6 /* Frameworks */ = {
+		1AA5972225B7918E00A36CA6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,97 +37,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AA596E025B742A800A36CA6 = {
+		1AA5971C25B7918E00A36CA6 = {
 			isa = PBXGroup;
 			children = (
-				1AA596EB25B742A900A36CA6 /* Day95_Milestone6_Dice */,
-				1AA596EA25B742A900A36CA6 /* Products */,
+				1AA5972725B7918E00A36CA6 /* Day95_Milestone6 */,
+				1AA5972625B7918E00A36CA6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1AA596EA25B742A900A36CA6 /* Products */ = {
+		1AA5972625B7918E00A36CA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AA596E925B742A900A36CA6 /* Day95_Milestone6_Dice.app */,
+				1AA5972525B7918E00A36CA6 /* Day95_Milestone6.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1AA596EB25B742A900A36CA6 /* Day95_Milestone6_Dice */ = {
+		1AA5972725B7918E00A36CA6 /* Day95_Milestone6 */ = {
 			isa = PBXGroup;
 			children = (
-				1AA5970825B782AA00A36CA6 /* Model */,
-				1AA596FC25B742BE00A36CA6 /* Views */,
-				1AA596EC25B742A900A36CA6 /* Day95_Milestone6_DiceApp.swift */,
-				1AA596EE25B742A900A36CA6 /* ContentView.swift */,
-				1AA596F025B742AC00A36CA6 /* Assets.xcassets */,
-				1AA596F525B742AC00A36CA6 /* Info.plist */,
-				1AA596F225B742AC00A36CA6 /* Preview Content */,
+				1AA5972825B7918E00A36CA6 /* Day95_Milestone6App.swift */,
+				1AA5972A25B7918E00A36CA6 /* ContentView.swift */,
+				1AA5972C25B7918F00A36CA6 /* Assets.xcassets */,
+				1AA5973125B7918F00A36CA6 /* Persistence.swift */,
+				1AA5973625B7918F00A36CA6 /* Info.plist */,
+				1AA5973325B7918F00A36CA6 /* Day95_Milestone6.xcdatamodeld */,
+				1AA5972E25B7918F00A36CA6 /* Preview Content */,
 			);
-			path = Day95_Milestone6_Dice;
+			path = Day95_Milestone6;
 			sourceTree = "<group>";
 		};
-		1AA596F225B742AC00A36CA6 /* Preview Content */ = {
+		1AA5972E25B7918F00A36CA6 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				1AA596F325B742AC00A36CA6 /* Preview Assets.xcassets */,
+				1AA5972F25B7918F00A36CA6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		1AA596FC25B742BE00A36CA6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				1AA596FD25B742E100A36CA6 /* HomepageView.swift */,
-				1AA5970225B7473900A36CA6 /* RollView.swift */,
-				1AA5970525B7474400A36CA6 /* LogView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		1AA5970825B782AA00A36CA6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1AA5970925B782BD00A36CA6 /* DataHandling.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1AA596E825B742A900A36CA6 /* Day95_Milestone6_Dice */ = {
+		1AA5972425B7918E00A36CA6 /* Day95_Milestone6 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1AA596F825B742AC00A36CA6 /* Build configuration list for PBXNativeTarget "Day95_Milestone6_Dice" */;
+			buildConfigurationList = 1AA5973925B7918F00A36CA6 /* Build configuration list for PBXNativeTarget "Day95_Milestone6" */;
 			buildPhases = (
-				1AA596E525B742A900A36CA6 /* Sources */,
-				1AA596E625B742A900A36CA6 /* Frameworks */,
-				1AA596E725B742A900A36CA6 /* Resources */,
+				1AA5972125B7918E00A36CA6 /* Sources */,
+				1AA5972225B7918E00A36CA6 /* Frameworks */,
+				1AA5972325B7918E00A36CA6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Day95_Milestone6_Dice;
-			productName = Day95_Milestone6_Dice;
-			productReference = 1AA596E925B742A900A36CA6 /* Day95_Milestone6_Dice.app */;
+			name = Day95_Milestone6;
+			productName = Day95_Milestone6;
+			productReference = 1AA5972525B7918E00A36CA6 /* Day95_Milestone6.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1AA596E125B742A900A36CA6 /* Project object */ = {
+		1AA5971D25B7918E00A36CA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					1AA596E825B742A900A36CA6 = {
+					1AA5972425B7918E00A36CA6 = {
 						CreatedOnToolsVersion = 12.3;
 					};
 				};
 			};
-			buildConfigurationList = 1AA596E425B742A900A36CA6 /* Build configuration list for PBXProject "Day95_Milestone6_Dice" */;
+			buildConfigurationList = 1AA5972025B7918E00A36CA6 /* Build configuration list for PBXProject "Day95_Milestone6" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -139,46 +117,44 @@
 				en,
 				Base,
 			);
-			mainGroup = 1AA596E025B742A800A36CA6;
-			productRefGroup = 1AA596EA25B742A900A36CA6 /* Products */;
+			mainGroup = 1AA5971C25B7918E00A36CA6;
+			productRefGroup = 1AA5972625B7918E00A36CA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1AA596E825B742A900A36CA6 /* Day95_Milestone6_Dice */,
+				1AA5972425B7918E00A36CA6 /* Day95_Milestone6 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1AA596E725B742A900A36CA6 /* Resources */ = {
+		1AA5972325B7918E00A36CA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA596F425B742AC00A36CA6 /* Preview Assets.xcassets in Resources */,
-				1AA596F125B742AC00A36CA6 /* Assets.xcassets in Resources */,
+				1AA5973025B7918F00A36CA6 /* Preview Assets.xcassets in Resources */,
+				1AA5972D25B7918F00A36CA6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1AA596E525B742A900A36CA6 /* Sources */ = {
+		1AA5972125B7918E00A36CA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AA5970A25B782BD00A36CA6 /* DataHandling.swift in Sources */,
-				1AA596EF25B742A900A36CA6 /* ContentView.swift in Sources */,
-				1AA5970325B7473900A36CA6 /* RollView.swift in Sources */,
-				1AA596ED25B742A900A36CA6 /* Day95_Milestone6_DiceApp.swift in Sources */,
-				1AA5970625B7474400A36CA6 /* LogView.swift in Sources */,
-				1AA596FE25B742E100A36CA6 /* HomepageView.swift in Sources */,
+				1AA5973225B7918F00A36CA6 /* Persistence.swift in Sources */,
+				1AA5972B25B7918E00A36CA6 /* ContentView.swift in Sources */,
+				1AA5973525B7918F00A36CA6 /* Day95_Milestone6.xcdatamodeld in Sources */,
+				1AA5972925B7918E00A36CA6 /* Day95_Milestone6App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1AA596F625B742AC00A36CA6 /* Debug */ = {
+		1AA5973725B7918F00A36CA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +215,7 @@
 			};
 			name = Debug;
 		};
-		1AA596F725B742AC00A36CA6 /* Release */ = {
+		1AA5973825B7918F00A36CA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -294,44 +270,44 @@
 			};
 			name = Release;
 		};
-		1AA596F925B742AC00A36CA6 /* Debug */ = {
+		1AA5973A25B7918F00A36CA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Day95_Milestone6_Dice/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Day95_Milestone6/Preview Content\"";
 				DEVELOPMENT_TEAM = K8YVKLM6GZ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Day95_Milestone6_Dice/Info.plist;
+				INFOPLIST_FILE = Day95_Milestone6/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Freedom.Day95-Milestone6-Dice";
+				PRODUCT_BUNDLE_IDENTIFIER = "Freedom.Day95-Milestone6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		1AA596FA25B742AC00A36CA6 /* Release */ = {
+		1AA5973B25B7918F00A36CA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Day95_Milestone6_Dice/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Day95_Milestone6/Preview Content\"";
 				DEVELOPMENT_TEAM = K8YVKLM6GZ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Day95_Milestone6_Dice/Info.plist;
+				INFOPLIST_FILE = Day95_Milestone6/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Freedom.Day95-Milestone6-Dice";
+				PRODUCT_BUNDLE_IDENTIFIER = "Freedom.Day95-Milestone6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,25 +317,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1AA596E425B742A900A36CA6 /* Build configuration list for PBXProject "Day95_Milestone6_Dice" */ = {
+		1AA5972025B7918E00A36CA6 /* Build configuration list for PBXProject "Day95_Milestone6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1AA596F625B742AC00A36CA6 /* Debug */,
-				1AA596F725B742AC00A36CA6 /* Release */,
+				1AA5973725B7918F00A36CA6 /* Debug */,
+				1AA5973825B7918F00A36CA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1AA596F825B742AC00A36CA6 /* Build configuration list for PBXNativeTarget "Day95_Milestone6_Dice" */ = {
+		1AA5973925B7918F00A36CA6 /* Build configuration list for PBXNativeTarget "Day95_Milestone6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1AA596F925B742AC00A36CA6 /* Debug */,
-				1AA596FA25B742AC00A36CA6 /* Release */,
+				1AA5973A25B7918F00A36CA6 /* Debug */,
+				1AA5973B25B7918F00A36CA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1AA5973325B7918F00A36CA6 /* Day95_Milestone6.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1AA5973425B7918F00A36CA6 /* Day95_Milestone6.xcdatamodel */,
+			);
+			currentVersion = 1AA5973425B7918F00A36CA6 /* Day95_Milestone6.xcdatamodel */;
+			path = Day95_Milestone6.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = 1AA596E125B742A900A36CA6 /* Project object */;
+	rootObject = 1AA5971D25B7918E00A36CA6 /* Project object */;
 }
