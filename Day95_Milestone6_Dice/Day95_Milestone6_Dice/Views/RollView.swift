@@ -39,7 +39,7 @@ struct RollView: View {
                 .foregroundColor(.orange)
             Image("dice")
                 .resizable()
-                .background(Color.primary)
+                .background(Color.orange)
                 .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .cornerRadius(30)
                 .rotation3DEffect(
@@ -50,16 +50,17 @@ struct RollView: View {
             Button("Choose size of dice") {
                 showingDiceChoices = true
             }.foregroundColor(.primary)
+            .padding()
             
             Button("Roll") {
                 stopDice = false
                 self.timeRemaining = timeOfDice
-                
             }.padding()
             .font(.largeTitle)
             .background(Color.orange)
             .foregroundColor(.black)
             .clipShape(Capsule())
+            
         }.actionSheet(isPresented: $showingDiceChoices, content: {
             ActionSheet(title: Text("Size of Dice"), message: Text("Select the size of dice"), buttons: [
                 .default(Text("4")) { maxNum = .fourSided},
