@@ -7,37 +7,40 @@
 
 import SwiftUI
 struct LogView: View {
-   // @State private var diceDatas: [DiceData] = [DiceData]()
-    @State private var diceDatas: [Int] = []
+    // @State private var diceDatas: [DiceData] = [DiceData]()
+    @State private var diceDatas: [DiceData] = []
     var body: some View {
         NavigationView {
-          //  VStack{
-            List(diceDatas, id:\.self){ data in
-               // ForEach(0..<diceDatas.count, id:\.self) { index in
-                    Text(String(data))
-          //      }
-            }.navigationTitle("History")
+            VStack{
+                List(diceDatas, id:\.self){ data in
+                    // ForEach(0..<diceDatas.count, id:\.self) { index in
+                    HStack{
+                        Text(String(data.diceValue))
+                    }
+       
+                    //      }
+                }.navigationTitle("History")
+                Button("Clear Data") {
+                    diceDatas = []
+                    UserDefaults.standard.set([], forKey: "DiceValue")
+                }.foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            }
         }
         .onAppear(
             perform:{self.loadData()}
         )
     }
-
+    
     func loadData() {
         print("loadData")
-      //  if let data = UserDefaults.standard.data(forKey: "DiceValue") {
-            if let data = UserDefaults.standard.array(forKey: "DiceValue") as? [Int] {
+        //  if let data = UserDefaults.standard.data(forKey: "DiceValue") {
+        if let data = UserDefaults.standard.data(forKey: "DiceValue") {
+            if let decoded = try? JSONDecoder().decode([DiceData].self, from: data) {
                 print("data: \(data)")
-                self.diceDatas = data
+                self.diceDatas = decoded
             }
-            
-            
-//            print("data: \(data)")
-//            if let decoded = try? JSONDecoder().decode([Int].self, from: data) {
-//                print("Decoded: \(decoded)")
-//                self.diceDatas = decoded
-//            }
-//        }
+    
+        }
     }
     
 }

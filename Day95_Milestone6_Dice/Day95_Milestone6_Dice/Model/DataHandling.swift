@@ -31,13 +31,15 @@ enum maxNumE: Int {
 //    self.diceDatas = []
 //}
 
-struct DiceData: Codable {
+struct DiceData: Codable, Hashable {
     let diceValue: Int
-    //let diceType: maxNumE
+   // let diceType: maxNumE
     static var example = DiceData(diceValue: 1)
   //  static var example = DiceData(diceValue: 1, diceType: .sixSided)
-    
-    
+//
+//    func encode(to encoder: Encoder) throws {
+//        try? JSONEncoder().encode(<#T##value: Encodable##Encodable#>)
+//    }
 
 }
 

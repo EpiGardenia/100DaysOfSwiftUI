@@ -13,7 +13,7 @@ struct RollView: View {
 
     @State private var rollAngle: Double = 0.0
     @State private var maxNum: maxNumE = .sixSided
-    @State private var values: [Int] = []
+    @State private var values: [DiceData] = []
     @State private var value = 0
     let timeOfDice = 40
     @State private var timeRemaining = 40 {
@@ -85,17 +85,24 @@ struct RollView: View {
             }
         }
         .onAppear(){
-            if let data = UserDefaults.standard.array(forKey: "DiceValue") as? [Int] {
+            if let data = UserDefaults.standard.array(forKey: "DiceValue") as? [DiceData] {
                 self.values = data
             }
         }
     }
 
     func addToLog() {
-        values.append(self.value)
+        let newDice = DiceData(diceValue: self.value)
+        values.append(newDice)
         print("Add \(self.value) to log")
-        UserDefaults.standard.set(values, forKey: "DiceValue")
-        print("Values: \(values)")
+        
+        if let encoded = try? JSONEncoder().encode(values) {
+            UserDefaults.standard.set(encoded, forKey: "DiceValue")
+        }
+        
+        
+       // UserDefaults.standard.set(values, forKey: "DiceValue")
+       // print("Values: \(values)")
      
     }
 
