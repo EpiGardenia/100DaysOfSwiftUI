@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
        // Day96_alert_sheet_optionals()
-        Day96_groupsLayoutView()
+       // Day96_groupsLayoutView()
+        SnowSeekerView()
     }
 }
 
