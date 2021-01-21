@@ -7,18 +7,16 @@
 
 import SwiftUI
 struct LogView: View {
-    // @State private var diceDatas: [DiceData] = [DiceData]()
     @State private var diceDatas: [DiceData] = []
     var body: some View {
         NavigationView {
             VStack{
                 List(diceDatas, id:\.self){ data in
-                    // ForEach(0..<diceDatas.count, id:\.self) { index in
                     HStack{
                         Text(String(data.diceValue))
+                        Spacer()
+                        Text(data.diceType.description)
                     }
-       
-                    //      }
                 }.navigationTitle("History")
                 Button("Clear Data") {
                     diceDatas = []
@@ -32,14 +30,10 @@ struct LogView: View {
     }
     
     func loadData() {
-        print("loadData")
-        //  if let data = UserDefaults.standard.data(forKey: "DiceValue") {
         if let data = UserDefaults.standard.data(forKey: "DiceValue") {
             if let decoded = try? JSONDecoder().decode([DiceData].self, from: data) {
-                print("data: \(data)")
                 self.diceDatas = decoded
             }
-    
         }
     }
     

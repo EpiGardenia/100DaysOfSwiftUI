@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct RollView: View {
     
     @Environment(\.managedObjectContext) var moc
-
+    @State private var engine: CHHapticEngine?
     @State private var rollAngle: Double = 0.0
     @State private var maxNum: maxNumE = .sixSided
     @State private var values: [DiceData] = []
@@ -22,15 +23,12 @@ struct RollView: View {
                 stopDice = true
                 rollAngle = 0
                 addToLog()
+                simpleSuccess()
             }
         }
     }
     @State private var showingDiceChoices = false
-    @State private var stopDice = true {
-        didSet {
-            print("stopDice = \(stopDice)")
-        }
-    }
+    @State private var stopDice = true 
     let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     
     
@@ -41,21 +39,22 @@ struct RollView: View {
                 .foregroundColor(.orange)
             Image("dice")
                 .resizable()
-                .foregroundColor(.blue)
+                .background(Color.primary)
                 .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .cornerRadius(30)
                 .rotation3DEffect(
                     .degrees(self.rollAngle),
                     axis: (x: 1, y: 1, z: 1)
                 )
                 .padding()
-            
             Button("Choose size of dice") {
                 showingDiceChoices = true
-            }.foregroundColor(.black)
+            }.foregroundColor(.primary)
             
             Button("Roll") {
                 stopDice = false
                 self.timeRemaining = timeOfDice
+                
             }.padding()
             .font(.largeTitle)
             .background(Color.orange)
@@ -85,27 +84,37 @@ struct RollView: View {
             }
         }
         .onAppear(){
+            prepareHaptics()
             if let data = UserDefaults.standard.array(forKey: "DiceValue") as? [DiceData] {
                 self.values = data
             }
         }
     }
-
+    
     func addToLog() {
-        let newDice = DiceData(diceValue: self.value)
+        let newDice = DiceData(diceValue: self.value, diceType: maxNum)
         values.append(newDice)
-        print("Add \(self.value) to log")
-        
         if let encoded = try? JSONEncoder().encode(values) {
             UserDefaults.standard.set(encoded, forKey: "DiceValue")
         }
-        
-        
-       // UserDefaults.standard.set(values, forKey: "DiceValue")
-       // print("Values: \(values)")
-     
     }
-
+    
+    func simpleSuccess() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
+    }
+    
+    func prepareHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware()
+                .supportsHaptics else {return}
+        do {
+            self.engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine: \(error.localizedDescription)")
+        }
+    }
+    
 }
 
 struct RollView_Previews: PreviewProvider {
