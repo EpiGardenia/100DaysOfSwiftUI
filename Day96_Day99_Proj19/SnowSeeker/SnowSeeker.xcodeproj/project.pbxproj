@@ -21,6 +21,7 @@
 		1AA597B125B98A8A00A36CA6 /* ResortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA597B025B98A8A00A36CA6 /* ResortView.swift */; };
 		1AA597B425B98C8000A36CA6 /* SkiDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA597B325B98C8000A36CA6 /* SkiDetailsView.swift */; };
 		1AA597B725B98CEE00A36CA6 /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA597B625B98CEE00A36CA6 /* ResortDetailsView.swift */; };
+		1AA597BA25BB030200A36CA6 /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA597B925BB030200A36CA6 /* Facility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1AA597B025B98A8A00A36CA6 /* ResortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortView.swift; sourceTree = "<group>"; };
 		1AA597B325B98C8000A36CA6 /* SkiDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkiDetailsView.swift; sourceTree = "<group>"; };
 		1AA597B625B98CEE00A36CA6 /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
+		1AA597B925BB030200A36CA6 /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				1AA5979A25B83BD000A36CA6 /* Day96_alert_sheet_optionals.swift */,
 				1AA5979E25B83CFF00A36CA6 /* Day96_groupsLayoutView.swift */,
+				1AA597B925BB030200A36CA6 /* Facility.swift */,
 				1AA597A125B983AA00A36CA6 /* SnowSeekerView.swift */,
 				1AA597AD25B9890600A36CA6 /* WelcomeView.swift */,
 				1AA597B025B98A8A00A36CA6 /* ResortView.swift */,
@@ -191,6 +194,7 @@
 				1AA597A225B983AA00A36CA6 /* SnowSeekerView.swift in Sources */,
 				1AA597B725B98CEE00A36CA6 /* ResortDetailsView.swift in Sources */,
 				1AA597B125B98A8A00A36CA6 /* ResortView.swift in Sources */,
+				1AA597BA25BB030200A36CA6 /* Facility.swift in Sources */,
 				1AA597AE25B9890600A36CA6 /* WelcomeView.swift in Sources */,
 				1AA5978925B83A9100A36CA6 /* SnowSeekerApp.swift in Sources */,
 				1AA597A825B9844800A36CA6 /* Resort.swift in Sources */,

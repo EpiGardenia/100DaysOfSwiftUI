@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ResortView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    @State private var selectedFacility: String?
     let resort: Resort
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0, content: {
@@ -17,10 +20,22 @@ struct ResortView: View {
                     .scaledToFit()
                 Group {
                     HStack{
-                        Spacer()
-                        ResortDetailsView(resort: resort)
-                        SkiDetailsView(resort: resort)
-                        Spacer()
+                        if sizeClass == .compact {
+                            //   Text("COMPACT CLASS")
+                            Spacer()
+                            VStack{
+                                ResortDetailsView(resort: resort)
+                            }
+                            VStack{
+                                SkiDetailsView(resort: resort)
+                            }
+                            Spacer()
+                        } else
+                        {
+                            ResortDetailsView(resort: resort)
+                            Spacer().frame(height:0)
+                            SkiDetailsView(resort: resort)
+                        }
                     }
                     .font(.headline)
                     .foregroundColor(.secondary)
@@ -31,9 +46,21 @@ struct ResortView: View {
                     Text("Facilities")
                         .font(.headline)
                     
-                    // A, B, and C
-                    Text(ListFormatter.localizedString(byJoining: resort.facilities))
-                        .padding(.vertical)
+                    // Using icons
+                    HStack{
+                        ForEach(resort.facilities) { facility in
+                            Facility.icon(for: facility)
+                                .font(.title)
+                                .onTapGesture {
+                                    self.selectedFacility = facility
+                                }
+                        }
+                    }.padding(.vertical)
+                    
+                    
+                    //                    // A, B, and C
+                    //                    Text(ListFormatter.localizedString(byJoining: resort.facilities))
+                    //                        .padding(.vertical)
                     
                     // A, B, C
                     //                    Text(resort.facilities
@@ -42,8 +69,18 @@ struct ResortView: View {
                 }
                 .padding(.horizontal)
             })
-        }.navigationBarTitle(Text("\(resort.name), \(resort.country)"), displayMode: .inline)
+        }
+        .navigationBarTitle(Text("\(resort.name), \(resort.country)"), displayMode: .inline)
+        .alert(item: $selectedFacility) { facility in
+            Facility.alert(for: facility)
+        }
     }
+}
+
+
+// Method 1:
+extension String: Identifiable {
+    public var id: String {self}
 }
 
 struct ResortView_Previews: PreviewProvider {
