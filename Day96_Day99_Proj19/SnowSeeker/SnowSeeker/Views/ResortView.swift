@@ -9,15 +9,29 @@ import SwiftUI
 
 struct ResortView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
-    @State private var selectedFacility: String?
+    @EnvironmentObject var favorites: Favorites
+    @State private var selectedFacility: Facility?
+    @State private var isFavorite = false
     let resort: Resort
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0, content: {
-                Image(decorative: resort.id)
-                    .resizable()
-                    .scaledToFit()
+                ZStack{
+                    Image(decorative: resort.id)
+                        .resizable()
+                        .scaledToFit()
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            Text("Photo Credit: \(resort.imageCredit)")
+                                .font(.caption)
+                                .foregroundColor(.black)
+                                .padding(.horizontal)
+                        }
+                    }
+                }
                 Group {
                     HStack{
                         if sizeClass == .compact {
@@ -46,16 +60,18 @@ struct ResortView: View {
                     Text("Facilities")
                         .font(.headline)
                     
+                    
                     // Using icons
                     HStack{
-                        ForEach(resort.facilities) { facility in
-                            Facility.icon(for: facility)
+                        ForEach(resort.facilityTypes) { facility in
+                            facility.icon
                                 .font(.title)
                                 .onTapGesture {
                                     self.selectedFacility = facility
                                 }
                         }
-                    }.padding(.vertical)
+                    }
+                    .padding(.vertical)
                     
                     
                     //                    // A, B, and C
@@ -68,12 +84,24 @@ struct ResortView: View {
                     //                        .padding(.vertical)
                 }
                 .padding(.horizontal)
+                
+                
+                Button(favorites.contains(resort) ? "Remove from Favourites" :  "Add to Favourites") {
+                    if self.favorites.contains(self.resort) {
+                        self.favorites.remove(self.resort)
+                    } else {
+                        self.favorites.add(self.resort)
+                    }
+                }
+                .padding()
+                
             })
         }
         .navigationBarTitle(Text("\(resort.name), \(resort.country)"), displayMode: .inline)
         .alert(item: $selectedFacility) { facility in
-            Facility.alert(for: facility)
+            facility.alert
         }
+        
     }
 }
 

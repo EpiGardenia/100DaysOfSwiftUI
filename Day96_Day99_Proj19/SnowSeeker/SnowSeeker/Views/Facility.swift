@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct Facility {
-    static func icon(for facility: String) -> some View {
+struct Facility: Identifiable {
+    let id = UUID()
+    var name: String
+    var icon: some View {
         let icons = [
             "Accommodation": "house",
             "Beginners": "1.circle",
@@ -17,18 +19,19 @@ struct Facility {
             "Family": "person.3"
         ]
         
-        if let iconName = icons[facility] {
+        if let iconName = icons[name] {
             let image = Image(systemName: iconName)
-                .accessibility(label: Text(facility))
+                .accessibility(label: Text(name))
                 .foregroundColor(.secondary)
             return image
         } else {
-            fatalError("Unknown afcility type: \(facility)")
+            fatalError("Unknown facility type: \(name)")
         }
     }
     
     
-    static func alert(for facility: String) -> Alert {
+    // static func alert(for facility: String) -> Alert {
+    var alert: Alert {
         let message = [
             "Accommodation": "This resort has popular on-site accommodation.",
             "Beginners": "This resort has lots of ski schools.",
@@ -37,10 +40,10 @@ struct Facility {
             "Family": "This resort is popular with families."
         ]
         
-        if let message = message[facility] {
-            return Alert(title: Text(facility), message: Text(message))
+        if let message = message[name] {
+            return Alert(title: Text(name), message: Text(message))
         } else {
-            fatalError("Unknown facility type: \(facility)")
+            fatalError("Unknown facility type: \(name)")
         }
     }
 }

@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         //ComparableView()
-        //AccessDirectoryView()
+        AccessDirectoryView()
         //EnumView()
-        ResultType()
+        //ResultType()
     }
 }
 

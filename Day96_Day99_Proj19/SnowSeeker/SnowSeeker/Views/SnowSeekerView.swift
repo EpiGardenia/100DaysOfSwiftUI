@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SnowSeekerView: View {
+    @ObservedObject var favorites = Favorites()
     let resorts: [Resort] = Bundle.main.decode("resorts.json")
     var body: some View {
         NavigationView {
@@ -29,10 +30,18 @@ struct SnowSeekerView: View {
                             Text("\(resort.runs) runs")
                                 .foregroundColor(.secondary)
                         }
+                        Spacer()
+                        if self.favorites.contains(resort) {
+                            Image(systemName: "heart.fill")
+                                .accessibility(label: Text("This is a favorite resort"))
+                                .foregroundColor(.red)
+                        }
+                        
                     })
             }.navigationBarTitle("Resorts")
             WelcomeView()
         }
+        .environmentObject(favorites)
     }
 }
 
