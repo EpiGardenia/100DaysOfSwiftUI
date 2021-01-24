@@ -10,21 +10,60 @@ import SwiftUI
 struct FilterView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var filterOptions: FilterOptions
+
     var body: some View {
+        let countryFilterOptions = filterOptions.filterOptions.filter{$0.category == .country}
+        let priceFilterOptions = filterOptions.filterOptions.filter{$0.category == .price}
+        let sizeFilterOptions = filterOptions.filterOptions.filter{$0.category == .size}
         VStack{
-            List(filterOptions.filterOptions, id:\.self) { filterOption in
-                HStack{
-                    Button(action: {filterOptions.toggle(filterOption)}) {
-                        Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+            Group {
+                Text("Country")
+                    .font(.headline)
+                List(countryFilterOptions, id:\.self) { filterOption in
+                    HStack{
+                        Button(action: {filterOptions.toggle(filterOption)}) {
+                            Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                        }
+                        Text(filterOption.title)
                     }
-                    Text(filterOption.title)
                 }
             }
-            
             Spacer()
-            Button("Filter") {
-                presentationMode.wrappedValue.dismiss()
-            }.modifier(ButtonModifier())
+            Group {
+                Text("Price")
+                    .font(.headline)
+                List(priceFilterOptions, id:\.self) { filterOption in
+                    HStack{
+                        Button(action: {filterOptions.toggle(filterOption)}) {
+                            Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                        }
+                        Text(filterOption.title)
+                    }
+                }
+            }
+            Spacer()
+            Group {
+                Text("Size")
+                    .font(.headline)
+                List(sizeFilterOptions, id:\.self) { filterOption in
+                    HStack{
+                        Button(action: {filterOptions.toggle(filterOption)}) {
+                            Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                        }
+                        Text(filterOption.title)
+                    }
+                }
+            }
+            Spacer()
+            HStack{
+                Button("Filter") {
+                    presentationMode.wrappedValue.dismiss()
+                }.modifier(ButtonModifier())
+                Button("Reset") {
+                    filterOptions.reset()
+                    presentationMode.wrappedValue.dismiss()
+                }.modifier(ButtonModifier())
+            }
         }
     }
 }

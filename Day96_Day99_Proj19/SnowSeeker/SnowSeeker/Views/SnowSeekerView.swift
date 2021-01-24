@@ -12,10 +12,13 @@ import SwiftUI
 struct SnowSeekerView: View {
     @ObservedObject var favorites = Favorites()
     let resorts: [Resort] = Bundle.main.decode("resorts.json")
-    let filterOptions = FilterOptions()
+    @ObservedObject var filterOptions = FilterOptions()
+    private var shownResorts: [Resort] {
+        return self.filterOptions.getFilteredResorts()
+    }
     var body: some View {
         NavigationView {
-            List(resorts) { resort in
+            List(shownResorts) { resort in
                 NavigationLink(
                     destination: ResortView(resort: resort),
                     label: {

@@ -27,6 +27,8 @@ class FilterOption: ObservableObject, Codable, Hashable{
 
 class FilterOptions: ObservableObject{
     private var countries: Set<String> = []
+    private var pricesInt: Set<Int> = []
+    private var sizesInt: Set<Int> = []
     private var allResorts: [Resort] = []
     private let fileURL = FileManager.getDocURL(of: "filterOptions.json")
     @Published var filterOptions: [FilterOption] = []
@@ -35,14 +37,17 @@ class FilterOptions: ObservableObject{
             self.filterOptions = Bundle.main.decode(fileURL)
         } else {
             self.allResorts = Bundle.main.decode("resorts.json")
-            self.filterOptions =
-                getLatestList()
+            self.filterOptions = getLatestList()
         }
     }
     
     func getLatestList() -> [FilterOption] {
         countries = Set(self.allResorts.map{$0.country})
-        let list = countries.map{FilterOption(category: .country, title: $0, isChecked: false)}
+        var list = countries.map{FilterOption(category: .country, title: $0, isChecked: false)}
+        pricesInt = Set(self.allResorts.map{$0.price})
+        list += pricesInt.map{FilterOption(category: .price, title: String(repeating: "$", count: $0), isChecked: false)}
+        sizesInt = Set(self.allResorts.map{$0.size})
+        list += sizesInt.map{FilterOption(category: .size, title: sizeString(fromInt: $0), isChecked: false)}
         print(list)
         return list
     }
@@ -54,10 +59,30 @@ class FilterOptions: ObservableObject{
     
     func getFilteredResorts() -> [Resort] {
         let validCountries = filterOptions.filter{$0.category == .country}.filter{$0.isChecked}.map{$0.title}
-        let validResorts = allResorts.filter{validCountries.contains($0.country)}
+        let validPrices = filterOptions.filter{$0.category == .price}.filter{$0.isChecked}.map{$0.title}
+        let validSizes = filterOptions.filter{$0.category == .size}.filter{$0.isChecked}.map{$0.title}
+        var validResorts = validCountries == [] ? allResorts : allResorts.filter{validCountries.contains($0.country)}
+        validResorts = validPrices == [] ? validResorts : validResorts.filter{validPrices.contains(String(repeating: "$", count: $0.price))}
+        validResorts = validSizes == [] ? validResorts : validResorts.filter{validSizes.contains(sizeString(fromInt: $0.size))}
         return validResorts
     }
     
+    func reset() {
+        self.filterOptions = getLatestList()
+    }
+    
+    func sizeString(fromInt size:Int) -> String {
+        switch size {
+        case 1:
+            return "Small"
+        case 2:
+            return "Average"
+        default:
+            return "Large"
+            
+        }
+        
+    }
 }
 
 enum FilterCategory: Codable {
