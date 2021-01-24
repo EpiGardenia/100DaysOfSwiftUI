@@ -50,10 +50,12 @@ class FilterOptions: ObservableObject{
     func toggle(_ filterOption: FilterOption) {
         objectWillChange.send()
         filterOption.isChecked.toggle()
-//        print("filterOption.isChecked = \(filterOption.isChecked)")
-//        let _ = filterOptions.map{print("\($0.title) \($0.isChecked)")}
-
-      //  print("filterOptions = \(filterOptions)")
+    }
+    
+    func getFilteredResorts() -> [Resort] {
+        let validCountries = filterOptions.filter{$0.category == .country}.filter{$0.isChecked}.map{$0.title}
+        let validResorts = allResorts.filter{validCountries.contains($0.country)}
+        return validResorts
     }
     
 }
