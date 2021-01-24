@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+
+/* TODO: Use Dictionary to trace filter result*/
+
 struct ResortView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     @EnvironmentObject var favorites: Favorites

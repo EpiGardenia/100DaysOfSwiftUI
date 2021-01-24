@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+
+
 struct SnowSeekerView: View {
     @ObservedObject var favorites = Favorites()
     let resorts: [Resort] = Bundle.main.decode("resorts.json")
+    let filterOptions = FilterOptions()
     var body: some View {
         NavigationView {
             List(resorts) { resort in
@@ -39,9 +42,11 @@ struct SnowSeekerView: View {
                         
                     })
             }.navigationBarTitle("Resorts")
+            .navigationBarItems(trailing: FilterSortView())
             WelcomeView()
         }
         .environmentObject(favorites)
+        .environmentObject(filterOptions)
     }
 }
 
