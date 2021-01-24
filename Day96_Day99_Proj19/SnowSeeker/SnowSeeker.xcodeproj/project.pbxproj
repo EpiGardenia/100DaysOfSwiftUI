@@ -111,7 +111,6 @@
 				1AA597B025B98A8A00A36CA6 /* ResortView.swift */,
 				1AA597B325B98C8000A36CA6 /* SkiDetailsView.swift */,
 				1AA597B625B98CEE00A36CA6 /* ResortDetailsView.swift */,
-				1AA597BF25BB0D0700A36CA6 /* Favorite.swift */,
 				1AA597D225BD9D4800A36CA6 /* FilterSortView.swift */,
 			);
 			path = Views;
@@ -123,6 +122,7 @@
 				1AA597A725B9844800A36CA6 /* Resort.swift */,
 				1AA597AA25B984D700A36CA6 /* Bundle-Decodable.swift */,
 				1AA597CE25BD932D00A36CA6 /* FilterOption.swift */,
+				1AA597BF25BB0D0700A36CA6 /* Favorite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

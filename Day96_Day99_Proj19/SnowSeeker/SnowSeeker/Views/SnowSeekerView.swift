@@ -35,9 +35,10 @@ struct SnowSeekerView: View {
                                 .font(.headline)
                             Text("\(resort.runs) runs")
                                 .foregroundColor(.secondary)
-                        }
-                        Spacer()
+                        }.layoutPriority(1)
+ 
                         if self.favorites.contains(resort) {
+                            Spacer()
                             Image(systemName: "heart.fill")
                                 .accessibility(label: Text("This is a favorite resort"))
                                 .foregroundColor(.red)
