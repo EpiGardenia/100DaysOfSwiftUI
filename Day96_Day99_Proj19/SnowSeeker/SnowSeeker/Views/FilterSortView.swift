@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct FilterView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var filterOptions: FilterOptions
     var body: some View {
         VStack{
-            List(filterOptions, id: \.self) { filterOption in
-                Button(action: {filterOptions.toggle(filterOption)}) {
-                    Image(systemName: filterOption.isChecked ? "square" : "square.fll")
+            List(filterOptions.filterOptions, id:\.self) { filterOption in
+                HStack{
+                    Button(action: {filterOptions.toggle(filterOption)}) {
+                        Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                    }
                     Text(filterOption.title)
                 }
             }
+            
+            Spacer()
+            Button("Filter") {
+                presentationMode.wrappedValue.dismiss()
+            }.modifier(ButtonModifier())
         }
     }
 }

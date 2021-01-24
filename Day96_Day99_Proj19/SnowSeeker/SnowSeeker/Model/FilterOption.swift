@@ -7,9 +7,12 @@
 
 import Foundation
 
-class FilterOption: ObservableObject, Codable{
+class FilterOption: ObservableObject, Codable, Hashable{
     static func == (lhs: FilterOption, rhs: FilterOption) -> Bool {
         return lhs.title == rhs.title
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
     }
     
     var category = FilterCategory.country
@@ -45,7 +48,12 @@ class FilterOptions: ObservableObject{
     }
     
     func toggle(_ filterOption: FilterOption) {
+        objectWillChange.send()
         filterOption.isChecked.toggle()
+//        print("filterOption.isChecked = \(filterOption.isChecked)")
+//        let _ = filterOptions.map{print("\($0.title) \($0.isChecked)")}
+
+      //  print("filterOptions = \(filterOptions)")
     }
     
 }
