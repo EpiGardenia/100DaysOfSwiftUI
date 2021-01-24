@@ -7,18 +7,11 @@
 
 import Foundation
 
-enum SortMethod {
+enum SortMethod{
     case name, country
 }
 
 class FilterOption: ObservableObject, Codable, Hashable{
-    static func == (lhs: FilterOption, rhs: FilterOption) -> Bool {
-        return lhs.title == rhs.title
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
-    }
-    
     var category = FilterCategory.country
     var title = ""
     var isChecked = false
@@ -26,6 +19,12 @@ class FilterOption: ObservableObject, Codable, Hashable{
         self.category = category
         self.title = title
         self.isChecked = isChecked
+    }
+    static func == (lhs: FilterOption, rhs: FilterOption) -> Bool {
+        return lhs.title == rhs.title
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
     }
 }
 
@@ -46,39 +45,18 @@ class FilterOptions: ObservableObject{
         }
     }
     
-    func getLatestList() -> [FilterOption] {
-        countries = Array(Set(self.allResorts.map{$0.country})).sorted()
-        var list = countries.map{FilterOption(category: .country, title: $0, isChecked: false)}
-        pricesInt =  Array(Set(self.allResorts.map{$0.price})).sorted()
-        list += pricesInt.map{FilterOption(category: .price, title: priceString(fromInt: $0), isChecked: false)}
-        sizesInt = Array(Set(self.allResorts.map{$0.size})).sorted()
-        list += sizesInt.map{FilterOption(category: .size, title: sizeString(fromInt: $0), isChecked: false)}
-        print(list)
-        return list
-    }
-    
     func toggle(_ filterOption: FilterOption) {
         objectWillChange.send()
         filterOption.isChecked.toggle()
     }
     
-    func sort(_ list: [Resort]) -> [Resort] {
-        switch self.sortMethod {
-        case .name:
-            return list.sorted{$0.name < $1.name}
-        case .country:
-            return list.sorted{$0.country < $1.country}
-        }
-    }
-    
     func getFilteredResorts() -> [Resort] {
         self.allResorts = Bundle.main.decode("resorts.json")
-        let validCountries = filterOptions.filter{$0.category == .country}.filter{$0.isChecked}.map{$0.title}
-        let validPrices = filterOptions.filter{$0.category == .price}.filter{$0.isChecked}.map{$0.title}
-        let validSizes = filterOptions.filter{$0.category == .size}.filter{$0.isChecked}.map{$0.title}
-        var validResorts = validCountries == [] ? allResorts : allResorts.filter{validCountries.contains($0.country)}
-        validResorts = validPrices == [] ? validResorts : validResorts.filter{validPrices.contains(priceString(fromInt: $0.price))}
-        validResorts = validSizes == [] ? validResorts : validResorts.filter{validSizes.contains(sizeString(fromInt: $0.size))}
+        var validResorts = allResorts
+        
+        for category in FilterCategory.allCases {
+            validResorts = narrowDownValidResorts(originList: validResorts, from: category)
+        }
         return sort(validResorts)
     }
     
@@ -90,7 +68,52 @@ class FilterOptions: ObservableObject{
         self.filterOptions = getLatestList()
     }
     
-    func sizeString(fromInt size:Int) -> String {
+    private func getLatestList() -> [FilterOption] {
+        countries = Array(Set(self.allResorts.map{$0.country})).sorted()
+        var list = countries.map{FilterOption(category: .country, title: $0, isChecked: false)}
+        pricesInt =  Array(Set(self.allResorts.map{$0.price})).sorted()
+        list += pricesInt.map{FilterOption(category: .price, title: priceString(fromInt: $0), isChecked: false)}
+        sizesInt = Array(Set(self.allResorts.map{$0.size})).sorted()
+        list += sizesInt.map{FilterOption(category: .size, title: sizeString(fromInt: $0), isChecked: false)}
+        print(list)
+        return list
+    }
+    
+    
+    private func narrowDownValidResorts(originList: [Resort], from category: FilterCategory) -> [Resort] {
+        var resorts: [Resort]
+        if getValidCategory(of: category) == [] {
+            resorts = originList
+        } else {
+            let validCategoryOptions = getValidCategory(of: category)
+            switch category {
+            case .country:
+                resorts = originList.filter{validCategoryOptions.contains($0.country)}
+            case .price:
+                resorts = originList.filter{validCategoryOptions.contains(priceString(fromInt: $0.price))}
+            case .size:
+                resorts = originList.filter{validCategoryOptions.contains(sizeString(fromInt: $0.size))}
+            }
+        }
+        return resorts
+        
+    }
+    
+    
+    private func getValidCategory(of category: FilterCategory) -> [String] {
+        return filterOptions.filter{$0.category == category}.filter{$0.isChecked}.map{$0.title}
+    }
+    
+    private func sort(_ list: [Resort]) -> [Resort] {
+        switch self.sortMethod {
+        case .name:
+            return list.sorted{$0.name < $1.name}
+        case .country:
+            return list.sorted{$0.country < $1.country}
+        }
+    }
+    
+    private func sizeString(fromInt size:Int) -> String {
         switch size {
         case 1:
             return "Small"
@@ -101,12 +124,14 @@ class FilterOptions: ObservableObject{
         }
     }
     
-    func priceString(fromInt price: Int) -> String {
-       return String(repeating: "$", count: price)
+    private func priceString(fromInt price: Int) -> String {
+        return String(repeating: "$", count: price)
     }
 }
 
-enum FilterCategory: Codable {
+enum FilterCategory: Codable, CaseIterable  {
+    case country, size, price
+    
     enum Key: CodingKey{
         case rawValue
     }
@@ -141,5 +166,4 @@ enum FilterCategory: Codable {
         }
     }
     
-    case country, size, price
 }

@@ -45,7 +45,7 @@ struct SnowSeekerView: View {
                         
                     })
             }.navigationBarTitle("Resorts")
-            .navigationBarItems(trailing: FilterSortView())
+            .navigationBarItems(trailing: FilterSortIcons())
             WelcomeView()
         }
         .environmentObject(favorites)

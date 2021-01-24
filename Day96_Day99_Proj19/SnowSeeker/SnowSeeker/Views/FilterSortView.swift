@@ -12,55 +12,28 @@ struct FilterView: View {
     @EnvironmentObject var filterOptions: FilterOptions
     
     var body: some View {
-        let countryFilterOptions = filterOptions.filterOptions.filter{$0.category == .country}
-        let priceFilterOptions = filterOptions.filterOptions.filter{$0.category == .price}
-        let sizeFilterOptions = filterOptions.filterOptions.filter{$0.category == .size}
         VStack{
             Group {
                 Text("Country")
-                    .font(.title2)
-                    .padding()
+                    .modifier(CategoryModifier())
                 VStack(alignment: .leading){
-                    ForEach(countryFilterOptions, id:\.self) { filterOption in
-                        HStack{
-                            Button(action: {filterOptions.toggle(filterOption)}) {
-                                Image(systemName: filterOption.isChecked ? "square.fill" : "square")
-                            }
-                            Text(filterOption.title)
-                        }
-                    }
+                    CategoryView(category: .country)
                 }
             }
             Divider()
             Group{
                 Text("Price")
-                    .font(.title2)
-                    .padding()
+                    .modifier(CategoryModifier())
                 HStack{
-                    ForEach(priceFilterOptions, id:\.self) { filterOption in
-                        HStack{
-                            Button(action: {filterOptions.toggle(filterOption)}) {
-                                Image(systemName: filterOption.isChecked ? "square.fill" : "square")
-                            }
-                            Text(filterOption.title)
-                        }
-                    }
+                    CategoryView(category: .price)
                 }
             }
             Divider()
             Group {
                 Text("Size")
-                    .font(.title2)
-                    .padding()
+                    .modifier(CategoryModifier())
                 HStack{
-                    ForEach(sizeFilterOptions, id:\.self) { filterOption in
-                        HStack{
-                            Button(action: {filterOptions.toggle(filterOption)}) {
-                                Image(systemName: filterOption.isChecked ? "square.fill" : "square")
-                            }
-                            Text(filterOption.title)
-                        }
-                    }
+                    CategoryView(category: .size)
                 }
             }
             Divider()
@@ -80,8 +53,7 @@ struct FilterView: View {
 }
 
 
-
-struct FilterSortView: View {
+struct FilterSortIcons: View {
     @EnvironmentObject var filterOptions: FilterOptions
     @State private var showingFilterView = false
     @State private var showingSortView = false
@@ -109,7 +81,7 @@ struct FilterSortView: View {
 struct ButtonModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.title)
+            .font(.title2)
             .padding()
             .foregroundColor(.blue)
             .background(Color.white)
@@ -117,8 +89,35 @@ struct ButtonModifier: ViewModifier {
     }
 }
 
+struct CategoryModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .font(.title2)
+            .padding()
+    }
+}
+
+
+struct CategoryView: View {
+    let category: FilterCategory
+    @EnvironmentObject var filterOptions: FilterOptions
+    
+    var body: some View {
+        let categoriedFilterOptions = filterOptions.filterOptions.filter{$0.category == category}
+        ForEach(categoriedFilterOptions, id:\.self) { filterOption in
+            HStack{
+                Button(action: {filterOptions.toggle(filterOption)}) {
+                    Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                }
+                Text(filterOption.title)
+            }
+        }
+    }
+}
+
+
 struct FilterSortView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterSortView()
+        FilterSortIcons()
     }
 }
