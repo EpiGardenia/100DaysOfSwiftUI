@@ -14,8 +14,8 @@
             filePath = "SnowSeeker/Views/FilterSortView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -30,10 +30,138 @@
             filePath = "SnowSeeker/Model/FilterOption.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "getLatestList()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48A44DFF-323E-41A2-81CF-110E659E3427"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnowSeeker/Views/SnowSeekerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "shownResorts"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F90A0C97-1677-4A05-AC6D-B804AA054190"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnowSeeker/Views/SnowSeekerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B52F3C2-E1B5-4CC4-8026-359012514BFA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnowSeeker/Model/FilterOption.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "getFilteredResorts()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6B52F3C2-E1B5-4CC4-8026-359012514BFA - c22c3f8d0c47db40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SnowSeeker.FilterOptions.getFilteredResorts() -&gt; Swift.Array&lt;SnowSeeker.Resort&gt;"
+                  moduleName = "SnowSeeker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/freedom/Documents/xcodeProjects/SwiftUI/100DaysOfSwiftUI_github/Day96_Day99_Proj19/SnowSeeker/SnowSeeker/Model/FilterOption.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "3308">
+               </Location>
+               <Location
+                  uuid = "6B52F3C2-E1B5-4CC4-8026-359012514BFA - cceb728d3163b731"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #12 (SnowSeeker.Resort) -&gt; Swift.Bool in SnowSeeker.FilterOptions.getFilteredResorts() -&gt; Swift.Array&lt;SnowSeeker.Resort&gt;"
+                  moduleName = "SnowSeeker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/freedom/Documents/xcodeProjects/SwiftUI/100DaysOfSwiftUI_github/Day96_Day99_Proj19/SnowSeeker/SnowSeeker/Model/FilterOption.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D892A8E-2F87-4972-B8CC-76E93EC21196"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SnowSeeker/Model/FilterOption.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "getFilteredResorts()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3D892A8E-2F87-4972-B8CC-76E93EC21196 - c22c3f8d0c47db82"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SnowSeeker.FilterOptions.getFilteredResorts() -&gt; Swift.Array&lt;SnowSeeker.Resort&gt;"
+                  moduleName = "SnowSeeker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/freedom/Documents/xcodeProjects/SwiftUI/100DaysOfSwiftUI_github/Day96_Day99_Proj19/SnowSeeker/SnowSeeker/Model/FilterOption.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "2056">
+               </Location>
+               <Location
+                  uuid = "3D892A8E-2F87-4972-B8CC-76E93EC21196 - a05e35f5b11903f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #10 (SnowSeeker.Resort) -&gt; Swift.Bool in SnowSeeker.FilterOptions.getFilteredResorts() -&gt; Swift.Array&lt;SnowSeeker.Resort&gt;"
+                  moduleName = "SnowSeeker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/freedom/Documents/xcodeProjects/SwiftUI/100DaysOfSwiftUI_github/Day96_Day99_Proj19/SnowSeeker/SnowSeeker/Model/FilterOption.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,7 +10,7 @@ import SwiftUI
 struct FilterView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var filterOptions: FilterOptions
-
+    
     var body: some View {
         let countryFilterOptions = filterOptions.filterOptions.filter{$0.category == .country}
         let priceFilterOptions = filterOptions.filterOptions.filter{$0.category == .price}
@@ -18,52 +18,63 @@ struct FilterView: View {
         VStack{
             Group {
                 Text("Country")
-                    .font(.headline)
-                List(countryFilterOptions, id:\.self) { filterOption in
-                    HStack{
-                        Button(action: {filterOptions.toggle(filterOption)}) {
-                            Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                    .font(.title2)
+                    .padding()
+                VStack(alignment: .leading){
+                    ForEach(countryFilterOptions, id:\.self) { filterOption in
+                        HStack{
+                            Button(action: {filterOptions.toggle(filterOption)}) {
+                                Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                            }
+                            Text(filterOption.title)
                         }
-                        Text(filterOption.title)
                     }
                 }
             }
-            Spacer()
-            Group {
+            Divider()
+            Group{
                 Text("Price")
-                    .font(.headline)
-                List(priceFilterOptions, id:\.self) { filterOption in
-                    HStack{
-                        Button(action: {filterOptions.toggle(filterOption)}) {
-                            Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                    .font(.title2)
+                    .padding()
+                HStack{
+                    ForEach(priceFilterOptions, id:\.self) { filterOption in
+                        HStack{
+                            Button(action: {filterOptions.toggle(filterOption)}) {
+                                Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                            }
+                            Text(filterOption.title)
                         }
-                        Text(filterOption.title)
                     }
                 }
             }
-            Spacer()
+            Divider()
             Group {
                 Text("Size")
-                    .font(.headline)
-                List(sizeFilterOptions, id:\.self) { filterOption in
-                    HStack{
-                        Button(action: {filterOptions.toggle(filterOption)}) {
-                            Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                    .font(.title2)
+                    .padding()
+                HStack{
+                    ForEach(sizeFilterOptions, id:\.self) { filterOption in
+                        HStack{
+                            Button(action: {filterOptions.toggle(filterOption)}) {
+                                Image(systemName: filterOption.isChecked ? "square.fill" : "square")
+                            }
+                            Text(filterOption.title)
                         }
-                        Text(filterOption.title)
                     }
                 }
             }
+            Divider()
             Spacer()
             HStack{
                 Button("Filter") {
+                    filterOptions.save()
                     presentationMode.wrappedValue.dismiss()
                 }.modifier(ButtonModifier())
                 Button("Reset") {
                     filterOptions.reset()
                     presentationMode.wrappedValue.dismiss()
                 }.modifier(ButtonModifier())
-            }
+            }.padding()
         }
     }
 }
@@ -71,17 +82,25 @@ struct FilterView: View {
 
 
 struct FilterSortView: View {
+    @EnvironmentObject var filterOptions: FilterOptions
     @State private var showingFilterView = false
+    @State private var showingSortView = false
     var body: some View {
         HStack{
             Button("Sort") {
-                
+                showingSortView = true
             }.modifier(ButtonModifier())
             Button("Filter") {
                 showingFilterView = true
             }.modifier(ButtonModifier())
         }.sheet(isPresented: $showingFilterView, content: {
             FilterView()
+        })
+        .actionSheet(isPresented: $showingSortView, content: {
+            ActionSheet(title: Text("Sort"), buttons: [
+                            .default(Text("Name")) {filterOptions.sortMethod = .name},
+                            .default(Text("Country")) {filterOptions.sortMethod = .country},
+                            .cancel()])
         })
     }
 }
