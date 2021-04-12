@@ -11,9 +11,9 @@ struct ContentView: View {
     var body: some View {
         //Day92_layoutView()
        // Day93_coordInGeometryReaderView()
-       // Day93_ScrollWithGeometryView()
+        Day93_ScrollWithGeometryView()
        // Day93_Scroll_coverFlow()
-        Day93_Scroll_selfTry()
+      //  Day93_Scroll_selfTry()
     }
 }
 
