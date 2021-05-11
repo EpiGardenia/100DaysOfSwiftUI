@@ -9,7 +9,7 @@
 ### Order of Modifier matters
 The modifier process view from top to down, for example, view1 will have bigger red square if original size of view1 equals to view2
 
-````swift
+```swift
  view1
     .padding()
     .background(Color.red)
