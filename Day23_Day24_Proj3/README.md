@@ -9,7 +9,8 @@
 ### Order of Modifier matters
 The modifier process view from top to down, for example, view1 will have bigger red square if original size of view1 equals to view2
 
-` view1
+````swift
+ view1
     .padding()
     .background(Color.red)
     
@@ -17,7 +18,7 @@ The modifier process view from top to down, for example, view1 will have bigger 
       .background(Color.red)
       .padding()
 
-`
+```
 
 ###  : some View
 
@@ -38,7 +39,7 @@ computed property `var motto1: some View { Text("Draco dormiens") }`
 
 
 ### Custom Containers
-`
+```swift
     struct GridStack<Content: View>: View {
     let rows: Int
     let columns: Int
@@ -56,17 +57,17 @@ computed property `var motto1: some View { Text("Draco dormiens") }`
         }
     }
 }
-`
+```
 Example of use:
 
-`
+```swift
     GridStack(rows: 4, columns: 4) { row, col in
         HStack {
             Image(systemName: "\(row * 4 + col).circle")
             Text("R\(row) C\(col)")
         }
     }
-`
+```
 
 Above will show 16 labels in 4*4 
 
@@ -80,10 +81,11 @@ Allows us to send in several views and have it form an implicit stack for us.
 
 Thus we can remove `HStack` in previous example if we add below inside `GridStack`
 
-`
+```swift
 init(rows: Int, columns: Int, @ViewBuilder content: @escaping (Int, Int) -> Content) {
     self.rows = rows
     self.columns = columns
     self.content = content
 }
-`
+```
+

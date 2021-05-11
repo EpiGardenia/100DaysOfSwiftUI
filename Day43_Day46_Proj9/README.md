@@ -16,13 +16,14 @@ Path
 `.move, .addLine`
 
 ### Shape
-`struct Arc: Shape {
+```swift
+struct Arc: Shape {
     .... 
     func path(in rect: CGRect) -> Path {
         ....
     }
 }
-`
+```
 
 ### InsettableShape protocol
 This is a shape that can be inset – reduced inwards – by a certain amount to produce another shape. 
@@ -41,9 +42,10 @@ Wraps images in a way that we have complete control over how they should be rend
 
 For example,
 
-` View
+```swift
+  View
     .border(ImagePaint(image: ...)
-`
+```
 This will make border with pattern of image
 
 
@@ -53,9 +55,10 @@ This is much faster when it is a multi-combined views
 
 ### ColorMultiply
 
-` VIew
+```swift
+VIew
    .colorMultiply(.red)
-   `
+   ```
 
 multiplies each source pixel color with the destination pixel colo
 Using multiply with a solid color applies a really common tint effect: blacks stay black (because they have the color value of 0, so regardless of what you put on top multiplying by 0 will produce 0), whereas lighter colors become various shades of the tint.
@@ -70,7 +73,7 @@ When a @State property change,  <\br>
 
 Thus, when we Tap,
 
-`
+```swift
     struct ContentView: View {
         @State private var insetAmount: CGFloat = 50
             var body: some View {
@@ -84,18 +87,19 @@ Thus, when we Tap,
         }
     }
 
-`
+```
 `insetAmount` get updated,  Trapezoid redraw the view, thus there is no animation effect.
 
 In depth, althoguh `insetAmount` is changing immedicately ( 2) ), SwiftUI continue monitor the changing value over time as part of animation(3).  SwiftUI keep setting  ` animatableData` to the latest value between old and new value.  Thus 
 
 with ` animatableData` below, the animation would work
-`
+```swift
     var animatableData: CGFloat {
         get { insetAmount }
         set { self.insetAmount = newValue }
     }
-`
+```
+
 
 If there are more than one @State property updated under ` withAnimation`
 `AnimatablePair` can be used.

@@ -9,11 +9,11 @@ https://www.hackingwithswift.com/100/swiftui/29
 
 ### Loading Resource from Bundle
 
-`
+```swift
     if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt") {
         if let fileContents = try? String(contentsOf: fileURL) {
         }
-`
+```
 
 ### String
 #### `components(separatedBy:)`
@@ -25,7 +25,9 @@ To covert "a b c" -> "["a", "b", "c"]"
 #### Check Misspelled string
 `let checker = UITextChecker()`
 
-`let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")`
+```swift
+let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")`
+```
 
 => 
 In this instance, if the Objective-C range comes back as empty – i.e., if there was no spelling mistake because the string was spelled correctly – then we get back the special value `NSNotFound`.

@@ -33,7 +33,7 @@ for example:
  
  
  ### Builduing custom transitions using viewmodifier
- `
+ ```swift
  extension AnyTransition {
      static var pivot: AnyTransition {
          .modifier(
@@ -42,6 +42,7 @@ for example:
          )
      }
  }
- `
+ ```
+ 
  
  
