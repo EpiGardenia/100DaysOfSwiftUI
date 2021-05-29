@@ -2,7 +2,7 @@
 Different drawing techniques
 
 ![Arrow](Arrow/Demo/Arrow.gif)
-![Checkboard](Checkboard/Demo/Checkboard.gif)
+![Checkboard](Checkerboard/Demo/Checkboard.gif)
 ![Flower](Flower/Demo/Flower.gif)
 ![Ring](Project9/Demo/Ring.gif)
 ![Spirograph](Spirograph/Demo/Spirograph.gif)
